@@ -1,0 +1,66 @@
+@use "./variables" as *;
+.sidebar {
+  outline: 1px solid $border-color;
+
+  &__section-top {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding-left: 23px;
+    padding-top: 27px;
+    padding-bottom: 22px;
+    outline: 1px solid $border-color;
+    gap: 22px;
+
+  }
+
+  &__create-button {
+    margin-left: 3px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 20px;
+    color: white;
+    padding: 0 10px;
+    border-radius: 20px;
+    border: 1px solid $green;
+
+  }
+
+  &__button {
+    margin-left: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 20px;
+    color: white;
+  }
+
+  &__icon {
+  }
+
+  &__section-bottom {
+  }
+
+  &__analitycs {
+  }
+
+  &__analitycs-button {
+  }
+
+  &__analitycs-icon {
+  }
+
+  &__projects {
+  }
+
+  &__projects-button {
+  }
+
+  &__projects-icon {
+  }
+}

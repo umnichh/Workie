@@ -1,0 +1,11 @@
+$secondary-color: rgb(55, 59, 78);
+$border-color: rgb(65, 69, 89);
+$main-color : rgb(47, 50, 67);
+$almost-white: rgb(182, 197, 238);
+$green: rgb(89, 159, 136);
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+};

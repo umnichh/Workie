@@ -1,3 +1,9 @@
+button {
+  background-color: transparent;
+  border-style: none;
+  padding: 0;
+}
+
 .header {
   background-color: rgb(55, 59, 78);
   grid-column: span 2;
@@ -13,6 +19,15 @@
   align-items: center;
   margin-left: 30px;
 }
+.header__menu-button path {
+  transform-origin: center center;
+  transition: all 0.3s ease;
+}
+.header__menu-button:hover path {
+  cursor: pointer;
+  fill: rgb(182, 197, 238);
+  transform: rotate(90deg);
+}
 .header__right-section {
   display: flex;
   justify-content: center;
@@ -24,7 +39,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   margin-left: 15px;
+}
+.header__logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__logo-line {
+  width: 0px;
+  height: 2px;
+  background: rgb(182, 197, 238);
+  transition: all 0.5s ease;
+}
+.header__logo:hover {
+  cursor: pointer;
+}
+.header__logo:hover .header__logo-line {
+  width: 70%;
+  height: 2px;
 }
 .header__search-bar {
   height: 40px;
@@ -56,19 +90,52 @@
   height: 50px;
   transform: rotate(45deg);
 }
-.header__control-button:hover svg path {
+.header__control-button path {
+  transition: all 0.3s ease;
+}
+.header__control-button:hover path {
   cursor: pointer;
-  fill: white;
+  fill: rgb(182, 197, 238);
 }
 
+.sidebar {
+  outline: 1px solid rgb(65, 69, 89);
+}
+.sidebar__section-top {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  padding-left: 23px;
+  padding-top: 27px;
+  padding-bottom: 22px;
+  outline: 1px solid rgb(65, 69, 89);
+  gap: 22px;
+}
+.sidebar__create-button {
+  margin-left: 3px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  font-size: 20px;
+  color: white;
+  padding: 0 10px;
+  border-radius: 20px;
+  border: 1px solid rgb(89, 159, 136);
+}
+.sidebar__button {
+  margin-left: 9px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  font-size: 20px;
+  color: white;
+}
 body {
   margin: 0 auto;
-}
-
-button {
-  background-color: transparent;
-  border-style: none;
-  padding: 0;
 }
 
 #root {

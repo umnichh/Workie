@@ -1,17 +1,11 @@
+@use './_variables' as *;
 @use './_header';
 @use './_sidebar';
 @use './_main';
 
-$main-color : rgb(47, 50, 67);
 
 body {
   margin: 0 auto;
-}
-
-button{
-  background-color: transparent;
-  border-style: none;
-  padding: 0;
 }
 
 #root {

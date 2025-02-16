@@ -14,10 +14,13 @@ export default function Header(){
         <button className="header__menu-button">
           <Menu className="header__menu-icon" />
         </button>
-        <div className="header__logo">
-          <img src={Logo} alt="Логотип" className="header__logo-icon" />
-          <LogoName className="header__logo-text" />
-        </div>
+        <a href="https://www.youtube.com/watch?v=SuyDe1VXaEk&ab_channel=FACE-Topic" className="header__logo">
+          <div className="header__logo-container">
+            <img src={Logo} alt="Логотип" className="header__logo-icon" />
+            <LogoName className="header__logo-text" />
+          </div>
+          <div className="header__logo-line"></div>
+        </a>
       </div>
 
       <div className="header__search-bar">
