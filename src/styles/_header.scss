@@ -1,0 +1,84 @@
+$secondary-color: rgb(55, 59, 78);
+$border-color: rgb(65, 69, 89);
+
+.header {
+  background-color: $secondary-color;
+  grid-column: span 2;
+  width: 100%;
+  border-bottom: 1px solid $border-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  };
+
+  &__left-section {
+    @include flex-center;
+    margin-left: 30px;
+  }
+
+  &__right-section {
+    @include flex-center;
+    margin-right: 30px;
+    gap: 20px;
+  }
+
+  &__logo {
+    @include flex-center;
+    margin-left: 15px;
+  }
+
+  &__search-bar {
+    height: 40px;
+    width: 372px;
+    background-color: $border-color;
+    border-radius: 10px;
+    position: relative;
+  }
+
+  &__search-icon {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+
+  &__search-input {
+    background-color: transparent;
+    position: absolute;
+    border-style: none;
+    top: 8px;
+    left: 40px;
+    font-size: 20px;
+    font-family: Inter, Arial, sans-serif;
+    color: white;
+
+    &:focus{
+      outline: none;
+    }
+  }
+
+  &__logo-icon {
+    width: 50px;
+    height: 50px;
+    transform: rotate(45deg);
+  }
+
+  &__control-button {
+
+    &:hover svg path{
+      cursor: pointer;
+      fill: white;
+    }
+  }
+}
+
+
+
+
+
+
+

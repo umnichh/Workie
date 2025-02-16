@@ -1,0 +1,83 @@
+.header {
+  background-color: rgb(55, 59, 78);
+  grid-column: span 2;
+  width: 100%;
+  border-bottom: 1px solid rgb(65, 69, 89);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__left-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 30px;
+}
+.header__right-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+  gap: 20px;
+}
+.header__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 15px;
+}
+.header__search-bar {
+  height: 40px;
+  width: 372px;
+  background-color: rgb(65, 69, 89);
+  border-radius: 10px;
+  position: relative;
+}
+.header__search-icon {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+.header__search-input {
+  background-color: transparent;
+  position: absolute;
+  border-style: none;
+  top: 8px;
+  left: 40px;
+  font-size: 20px;
+  font-family: Inter, Arial, sans-serif;
+  color: white;
+}
+.header__search-input:focus {
+  outline: none;
+}
+.header__logo-icon {
+  width: 50px;
+  height: 50px;
+  transform: rotate(45deg);
+}
+.header__control-button:hover svg path {
+  cursor: pointer;
+  fill: white;
+}
+
+body {
+  margin: 0 auto;
+}
+
+button {
+  background-color: transparent;
+  border-style: none;
+  padding: 0;
+}
+
+#root {
+  font: 20px Inter, Arial, sans-serif;
+  background: rgb(47, 50, 67);
+  display: grid;
+  grid-template-columns: 320px auto;
+  grid-template-rows: 65px auto;
+  box-sizing: border-box;
+}
+
+/*# sourceMappingURL=style.css.map */
