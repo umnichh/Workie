@@ -1,11 +1,11 @@
-@use './_variables' as *;
-@use './_header';
-@use './_sidebar';
-@use './_main';
-
+@use "../styles/variables" as *;
+@use '../components/Header/header';
+@use '../components/Sidebar/sidebar';
+@use '../components/Main/main';
 
 body {
-  margin: 0 auto;
+margin: 0;
+background-color: $main-color;
 }
 
 #root {
@@ -13,7 +13,7 @@ body {
   background: $main-color;
   display: grid;
   grid-template-columns: 320px auto;
-  grid-template-rows: 65px auto;
+  grid-template-rows: 50px auto;
   box-sizing: border-box;
 }
 

@@ -1,4 +1,4 @@
-@use "./variables" as *;
+@use "../../styles/variables" as *;
 .sidebar {
   outline: 1px solid $border-color;
 
