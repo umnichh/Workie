@@ -23,11 +23,11 @@ export default function App() {
     <Routes>
       <Route path="/" element={
         <ProtectedRoute>
-          <>
+          <div className="home">
             <Header handleTheme={handleTheme} isWhiteTheme={isWhiteTheme} isSideBarHidden={isSideBarHidden} setIsSideBarHidden={handleSidebarHidden}/>
             <Sidebar isWhiteTheme={isWhiteTheme} isSideBarHidden={isSideBarHidden}/>
             <Main isWhiteTheme={isWhiteTheme}/>
-          </>
+          </div>
         </ProtectedRoute>} />
       <Route path="/login" element={<Login />} />
     </Routes>

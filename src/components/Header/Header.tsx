@@ -24,7 +24,11 @@ export default function HeaderComponent({isSideBarHidden, setIsSideBarHidden, ha
           <button className="header__button header__button--menu" onClick={() => setIsSideBarHidden(!isSideBarHidden)}>
             <MenuIcon className={`header__menu-icon ${isSideBarHidden ? 'header__menu-icon--rotate' : ''}`}/>
           </button>
-          <LogoComponent isWhiteTheme={isWhiteTheme} />
+          <LogoComponent
+            logoWidth="40px"
+            logoHeight="40px"
+            nameHeight="75px"
+            isWhiteTheme={isWhiteTheme} />
         </div>
 
         <div className={`header__search ${isWhiteTheme ? 'header__search--white' : ''}`}>

@@ -190,14 +190,9 @@ button {
   align-items: center;
 
   &__image {
-    width: 40px;
-    height: 40px;
     transform: rotate(-45deg);
   }
-
   &__name {
-    width: 75px;
-
     &--white {
       path {
         fill: black;
