@@ -2,18 +2,28 @@
 @use '../components/Header/header';
 @use '../components/Sidebar/sidebar';
 @use '../components/Main/main';
+@use '../components/Login/login';
 
 body {
-margin: 0;
-background-color: $main-color;
+  margin: 0;
+  background-color: $body-black;
+  font: 20px Inter, Arial, sans-serif;
+  transition: background-color 0.3s ease-in-out;
+  height: 100vh;
+}
+
+.body--white{
+  background-color: $body-white;
 }
 
 #root {
-  font: 20px Inter, Arial, sans-serif;
-  background: $main-color;
   display: grid;
-  grid-template-columns: 320px auto;
+  grid-template-columns: auto minmax(0, 1fr);
   grid-template-rows: 50px auto;
+  height: 100%;
   box-sizing: border-box;
+  overflow: hidden;
+  transition: all 1s ease-in-out;
 }
+
 

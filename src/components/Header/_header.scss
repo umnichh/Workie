@@ -9,10 +9,20 @@ button {
 
 // Header
 .header {
-  background-color: $secondary-color;
+  background-color: $header;
   grid-column: span 2;
+  grid-row: 1;
   display: flex;
   align-items: center;
+  transition: background-color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-bottom: 1px solid $border;
+  z-index: 1;
+
+  &--white {
+    background-color: $body-white;
+    border-bottom: 1px solid $border-white;
+  }
 
   &__container {
     display: flex;
@@ -29,14 +39,28 @@ button {
     gap: 15px;
   }
 
+  &__menu-icon{
+
+    &--rotate{
+      transform: rotate(-90deg);
+    }
+  }
+
   &__search {
-    background-color: $border-color;
+    background-color: $search-black;
     position: relative;
     display: flex;
     align-items: center;
     border-radius: 10px;
     height: 30px;
     width: 350px;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid $search-black;
+
+    &--white {
+      background-color: $search-white;
+      border: 1px solid $search-white-border;
+    }
   }
 
   &__search-icon {
@@ -44,17 +68,28 @@ button {
     top: 5px;
     left: 7px;
     width: 15px;
+
+    &--white {
+      path {
+        fill: $search-white-input;
+      }
+    }
   }
 
   &__search-input {
     position: absolute;
     background-color: transparent;
-    color: $input-header-color;
+    width: 100%;
+    color: $search-black-input;
     border-style: none;
     font-size: 1rem;
     left: 25px;
     top: 4px;
     outline: none;
+
+    &--white {
+      color: black;
+    }
   }
 
   &__controls {
@@ -70,25 +105,18 @@ button {
       path {
         fill: $almost-white;
       }
-
-      &:hover {
-        path {
-          fill: $green;
-        }
-      }
     }
 
     &--menu {
       svg {
-        transition: transform 0.3s ease-in-out;
+        transition: transform 0.1s ease-in-out;
         width: 20px;
         height: 20px;
         path {
           fill: $almost-white;
         }
-
-        &:hover{
-          transform: rotate(90deg);
+        &:hover {
+          fill: $almost-white;
         }
       }
     }
@@ -101,11 +129,11 @@ button {
     height: 26px;
     border-radius: 15px;
     border: 2px solid $almost-white;
-    background-color: $theme-switch-black;
+    background-color: $switcher;
     transition: background-color 0.2s ease-in-out;
 
     &:hover {
-      background-color: $blue;
+      background-color: $purple;
     }
 
     &--white {
@@ -129,7 +157,7 @@ button {
     &--black {
       left: auto;
       right: 1px;
-      background-color: $theme-switch-black;
+      background-color: $switcher;
     }
   }
 
@@ -169,5 +197,11 @@ button {
 
   &__name {
     width: 75px;
+
+    &--white {
+      path {
+        fill: black;
+      }
+    }
   }
 }

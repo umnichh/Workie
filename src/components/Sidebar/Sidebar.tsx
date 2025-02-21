@@ -1,58 +1,73 @@
-import CreateSvg from '../../assets/create.svg?react'
-import HomeSvg from '../../assets/home.svg?react'
-import NotificationSvg from '../../assets/notifications.svg?react'
-import TaskSvg from '../../assets/tasks.svg?react'
-import GoalSvg from '../../assets/goals.svg?react'
-import IdeaSvg from '../../assets/ideas.svg?react'
-import MapSvg from '../../assets/ideas.svg?react'
-import ArrowDown from '../../assets/arrowdown.svg?react'
-// import ArrowUp from '../../assets/arrowup.svg?react'
+import CreateSvg from '../../assets/Sidebar/create.svg?react'
+import HomeSvg from '../../assets/Sidebar/home.svg?react'
+import NotificationSvg from '../../assets/Sidebar/notifications.svg?react'
+import TaskSvg from '../../assets/Sidebar/tasks.svg?react'
+import GoalSvg from '../../assets/Sidebar/goals.svg?react'
+import IdeaSvg from '../../assets/Sidebar/ideas.svg?react'
+import MapSvg from '../../assets/Sidebar/roadmap.svg?react'
+import ArrowDown from '../../assets/Shared/arrowdown.svg?react'
+import { useState } from "react";
 
-export default function Sidebar(){
+type SidebarProps = {
+  isSideBarHidden: boolean,
+  isWhiteTheme: boolean
+}
+
+export default function Sidebar({isSideBarHidden, isWhiteTheme}: SidebarProps) {
+  const [isAnalyticsHidden, setIsAnalyticsHidden] = useState(false);
+  const [isProjectsHidden, setIsProjectsHidden] = useState(false);
   return(
-    <aside className="sidebar">
-      <div className="sidebar__section-top">
-        <button className="sidebar__create-button">
-          <CreateSvg className="sidebar__create-icon"/>
-          Создать
+    <aside className={`sidebar ${isSideBarHidden ? 'sidebar--hidden' : ''} ${isWhiteTheme ? 'sidebar--white' : ''}`}>
+      <div className="sidebar__top">
+        <button className="sidebar__create">
+          <CreateSvg/>
+          {!isSideBarHidden ? 'Создать' : ''}
         </button>
         <button className="sidebar__button">
-          <HomeSvg className="sidebar__icon"/>
-          Главная
+          <HomeSvg/>
+          {!isSideBarHidden ? 'Главная' : ''}
         </button>
-        <button className="sidebar__button">
-          <TaskSvg className="sidebar__icon"/>
-          Мои задачи
+        <button className="sidebar__button ">
+          <TaskSvg/>
+          {!isSideBarHidden ? 'Задачи' : ''}
         </button>
-        <button className="sidebar__button">
-          <NotificationSvg className="sidebar__icon"/>
-          Уведомления
+        <button className="sidebar__button ">
+          <NotificationSvg/>
+          {!isSideBarHidden ? 'Уведомления' : ''}
         </button>
       </div>
-      <div className="sidebar__section-bottom">
+      <div className="sidebar__bottom">
         <div className="sidebar__analitycs">
-          <button className="sidebar__analitycs-button">
+          {!isSideBarHidden &&
+            <button className="sidebar__button sidebar__button--expand" onClick={() => setIsAnalyticsHidden(!isAnalyticsHidden)}>
             Аналитика
-            <ArrowDown className="sidebar__analitycs-icon"/>
+            <ArrowDown className={`sidebar__arrow ${isAnalyticsHidden ? 'sidebar__arrow--rotate' : ''}`}/>
           </button>
-          <button className="sidebar__button">
-            <GoalSvg className="sidebar__icon"/>
-            Цели
-          </button>
-          <button className="sidebar__button">
-            <IdeaSvg className="sidebar__icon"/>
-            Идеи
-          </button>
-          <button className="sidebar__button">
-            <MapSvg className="sidebar__icon"/>
-            RoadMap
-          </button>
+          }
+          <div className={`sidebar__analytics-container ${isAnalyticsHidden ? 'sidebar__analytics-container--hidden' : ''}`}>
+            <button className="sidebar__button">
+              <GoalSvg/>
+              {!isSideBarHidden ? 'Цели' : ''}
+            </button>
+            <button className="sidebar__button ">
+              <IdeaSvg/>
+              {!isSideBarHidden ? 'Идеи' : ''}
+            </button>
+            <button className="sidebar__button ">
+              <MapSvg/>
+              {!isSideBarHidden ? 'Roadmap' : ''}
+            </button>
+          </div>
         </div>
+
         <div className="sidebar__projects">
-          <button className="sidebar__projects-button">
+          {!isSideBarHidden &&
+          <button className="sidebar__button sidebar__button--expand" onClick={() => setIsProjectsHidden(!isProjectsHidden)}>
             Проекты
-            <ArrowDown className="sidebar__projects-icon"/>
+            <ArrowDown className={`sidebar__arrow ${isProjectsHidden ? 'sidebar__arrow--rotate' : ''}`}/>
           </button>
+          }
+          <div className="sidebar__projects-container"></div>
         </div>
       </div>
     </aside>
