@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import {Navigate} from "react-router-dom";
 import CalculatorSvg from "../../assets/Login/calculation-mathematics-calculator-svgrepo-com.svg?react";
 import CalendarSvg from "../../assets/Login/calendar-svgrepo-com.svg?react";
 import CheckSvg from "../../assets/Login/check-svgrepo-com.svg?react";
@@ -46,9 +47,30 @@ export default function Login() {
 
   function handleAuth(e: React.SyntheticEvent) {
     e.preventDefault();
-    store.dispatch({type:'auth/login', payload:login});
-    store.dispatch({type:'auth/password', payload:password});
-    console.log(store.getState());
+    handleLogin();
+  }
+
+  async function handleLogin() {
+    try {
+      const response = await fetch('http://217.114.2.143:8080/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          identifier: login,
+          password: password,
+        })
+      })
+
+
+      if (response.ok){
+        const data = await response.json();
+        document.cookie = `token=${data.token}; path=/;`;
+      }
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   function handleBackground() {
