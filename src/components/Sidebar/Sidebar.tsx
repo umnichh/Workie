@@ -13,6 +13,7 @@ type SidebarProps = {
   isWhiteTheme: boolean
 }
 
+
 export default function Sidebar({isSideBarHidden, isWhiteTheme}: SidebarProps) {
   const [isAnalyticsHidden, setIsAnalyticsHidden] = useState(false);
   const [isProjectsHidden, setIsProjectsHidden] = useState(false);
@@ -21,19 +22,21 @@ export default function Sidebar({isSideBarHidden, isWhiteTheme}: SidebarProps) {
       <div className="sidebar__top">
         <button className="sidebar__create">
           <CreateSvg/>
-          {!isSideBarHidden ? 'Создать' : ''}
+          <span className={`sidebar__label ${isSideBarHidden ? 'sidebar__label--hidden' : ''}`}>Создать</span>
         </button>
         <button className="sidebar__button">
           <HomeSvg/>
-          {!isSideBarHidden ? 'Главная' : ''}
+          <span className={`sidebar__label ${isSideBarHidden ? 'sidebar__label--hidden' : ''}`}>Главная</span>
         </button>
         <button className="sidebar__button ">
           <TaskSvg/>
-          {!isSideBarHidden ? 'Задачи' : ''}
+          <span className={`sidebar__label ${isSideBarHidden ? 'sidebar__label--hidden' : ''}`}>Задачи</span>
+
         </button>
         <button className="sidebar__button ">
           <NotificationSvg/>
-          {!isSideBarHidden ? 'Уведомления' : ''}
+          <span className={`sidebar__label ${isSideBarHidden ? 'sidebar__label--hidden' : ''}`}>Уведомления</span>
+
         </button>
       </div>
       <div className="sidebar__bottom">
@@ -47,15 +50,18 @@ export default function Sidebar({isSideBarHidden, isWhiteTheme}: SidebarProps) {
           <div className={`sidebar__analytics-container ${isAnalyticsHidden ? 'sidebar__analytics-container--hidden' : ''}`}>
             <button className="sidebar__button">
               <GoalSvg/>
-              {!isSideBarHidden ? 'Цели' : ''}
+              <span className={`sidebar__label ${isSideBarHidden ? 'sidebar__label--hidden' : ''}`}>Цели</span>
+
             </button>
             <button className="sidebar__button ">
               <IdeaSvg/>
-              {!isSideBarHidden ? 'Идеи' : ''}
+              <span className={`sidebar__label ${isSideBarHidden ? 'sidebar__label--hidden' : ''}`}>Идеи</span>
+
             </button>
             <button className="sidebar__button ">
               <MapSvg/>
-              {!isSideBarHidden ? 'Roadmap' : ''}
+              <span className={`sidebar__label ${isSideBarHidden ? 'sidebar__label--hidden' : ''}`}>Roadmap</span>
+
             </button>
           </div>
         </div>

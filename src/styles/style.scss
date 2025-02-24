@@ -15,8 +15,11 @@ body {
 .body--white{
   background-color: $body-white;
 }
+#root{
+  height: 100%;
+}
 
-.root {
+.home {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   grid-template-rows: 50px auto;
