@@ -1,51 +1,27 @@
-import MenuIcon from "../../assets/Header/menu.svg?react";
-import HelpIcon from '../../assets/Header/help.svg?react';
-import ProfileIcon from '../../assets/Header/profile.svg?react';
-import SearchIcon from '../../assets/Header/search.svg?react';
-import LogoComponent from '../../shared/Logo.tsx';
-import Moon from '../../assets/Header/moon.svg?react';
-import Sun from '../../assets/Header/sun.svg?react';
 import React from "react";
+import HelpIcon from "../../assets/Header/help.svg?react";
+import ProfileIcon from "../../assets/Header/profile.svg?react";
+import LogoComponent from "../../shared/Logo.tsx";
+import ThemeSwitcher from "./ThemeSwitcher";
+import NavSwitcher from "./NavSwitcher.tsx";
+import Search from "./Search.tsx";
 
 type HeaderProps = {
   isSideBarHidden: boolean;
-  setIsSideBarHidden: React.Dispatch<React.SetStateAction<boolean>>
-  handleTheme: () => void;
-  isWhiteTheme: boolean;
-}
-export default function HeaderComponent({isSideBarHidden, setIsSideBarHidden, handleTheme, isWhiteTheme}: HeaderProps) {
+  setIsSideBarHidden: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-
-
+export default function HeaderComponent({ isSideBarHidden, setIsSideBarHidden }: HeaderProps) {
   return (
-    <header className={`header ${isWhiteTheme ? 'header--white' : ''}`}>
+    <header className="header">
       <div className="header__container">
         <div className="header__left">
-          <button className="header__button header__button--menu" onClick={() => setIsSideBarHidden(!isSideBarHidden)}>
-            <MenuIcon className={`header__menu-icon ${isSideBarHidden ? 'header__menu-icon--rotate' : ''}`}/>
-          </button>
-          <LogoComponent
-            logoWidth="40px"
-            logoHeight="40px"
-            nameHeight="75px"
-            isWhiteTheme={isWhiteTheme} />
+          <NavSwitcher isSideBarHidden={isSideBarHidden} setIsSideBarHidden={setIsSideBarHidden} />
+          <LogoComponent logoWidth="40px" logoHeight="40px" nameHeight="75px" />
         </div>
-
-        <div className={`header__search ${isWhiteTheme ? 'header__search--white' : ''}`}>
-          <SearchIcon className={`header__search-icon ${isWhiteTheme ? 'header__search-icon--white' : ''}`} />
-          <input
-            type="text"
-            placeholder="Поиск..."
-            className={`header__search-input ${isWhiteTheme ? 'header__search-input--white' : ''}`}
-          />
-        </div>
-
+        <Search />
         <div className="header__controls">
-          <button className={`header__switch ${isWhiteTheme ? 'header__switch--white' : ''}`} onClick={handleTheme}>
-            <div className={`header__toggle ${isWhiteTheme ? 'header__toggle--black' : ''}`}></div>
-            {!isWhiteTheme && <Moon className="header__toggle-moon"/>}
-            {isWhiteTheme && <Sun className="header__toggle-sun"/>}
-          </button>
+          <ThemeSwitcher />
           <button className="header__button">
             <HelpIcon />
           </button>

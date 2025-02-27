@@ -9,12 +9,6 @@ import {Route, Routes} from "react-router-dom";
 
 export default function App() {
   const [isSideBarHidden, setIsSideBarHidden] = useState(false);
-  const [isWhiteTheme, setWhiteTheme] = useState(false);
-
-  function handleTheme(){
-    setWhiteTheme(!isWhiteTheme);
-  }
-
   function handleSidebarHidden() {
     setIsSideBarHidden(!isSideBarHidden)
   }
@@ -24,9 +18,9 @@ export default function App() {
       <Route path="/" element={
         <ProtectedRoute>
           <div className="home">
-            <Header handleTheme={handleTheme} isWhiteTheme={isWhiteTheme} isSideBarHidden={isSideBarHidden} setIsSideBarHidden={handleSidebarHidden}/>
-            <Sidebar isWhiteTheme={isWhiteTheme} isSideBarHidden={isSideBarHidden}/>
-            <Main isWhiteTheme={isWhiteTheme}/>
+            <Header  isSideBarHidden={isSideBarHidden} setIsSideBarHidden={handleSidebarHidden}/>
+            <Sidebar isSideBarHidden={isSideBarHidden}/>
+            <Main/>
           </div>
         </ProtectedRoute>} />
       <Route path="/login" element={<Login />} />

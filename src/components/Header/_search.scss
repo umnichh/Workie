@@ -1,0 +1,31 @@
+//Search
+.search {
+  background-color: var(--search-bg);
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  height: 30px;
+  width: 350px;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid var(--search-bg);
+
+  &__icon {
+    position: absolute;
+    top: 5px;
+    left: 7px;
+    width: 15px;
+  }
+
+  &__input {
+    position: absolute;
+    background-color: transparent;
+    width: 100%;
+    color: var(--search-input);
+    border-style: none;
+    font-size: 1rem;
+    left: 25px;
+    top: 4px;
+    outline: none;
+  }
+}

@@ -1,0 +1,58 @@
+//ThemeSwitcher
+.theme-switcher {
+  margin-right: 10px;
+  position: relative;
+  width: 50px;
+  height: 26px;
+  border-radius: 15px;
+  border: 2px solid var(--header-btn);
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: var(--switcher-bg);
+  }
+
+  &--white {
+    background-color: var(--toggle-bg);
+
+    &:hover {
+      background-color: var(--switcher-bg);
+    }
+  }
+
+  &__toggle {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--toggle-text);
+
+    &--white {
+      left: auto;
+      right: 2px;
+      background-color: var(--toggle-text);
+    }
+
+    &--moon {
+      position: absolute;
+      top: 1px;
+      right: 3px;
+      width: 18px;
+      height: 18px;
+
+      & path {
+        fill: var(--text);
+      }
+    }
+
+    &--sun {
+      position: absolute;
+      top: 1px;
+      left: 3px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

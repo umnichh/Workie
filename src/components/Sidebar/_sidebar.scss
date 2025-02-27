@@ -4,29 +4,19 @@
   grid-row: 2;
   grid-column: 1;
   flex-direction: column;
-  background-color: $header;
+  background-color: var(--header-bg);
   padding: 20px 10px 20px 10px;
-  border-right: 1px solid $border;
+  border-right: 1px solid var(--border-bg);
   height: 100%;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   clip-path: inset(0px -10px -10px -10px);
-  transition: all 0.1s ease-in-out, background-color 0.3s ease-in-out;
+  transition: all 0.1s ease-in-out, background-color 0.3s ease-in-out , border 0.3s ease-in-out;
   width: 200px;
   overflow: hidden;
   z-index: 2;
 
-  &--white {
-    background-color: $body-white;
-    border-right: 1px solid $border-white;
-    button {
-      color: black;
-      &:hover {
-          background-color: $border-white;
-      }
-    }
-    svg path{
-        fill: black;
-      }
+  svg path{
+    fill: var(--text);
   }
 
   &--hidden {
@@ -34,12 +24,10 @@
   }
 
   &__label{
-
     text-align: left;
-
     overflow: hidden;
     &--hidden {
-      display: none;
+     display: none;
     }
   }
 
@@ -54,25 +42,26 @@
     width: 100%;
     gap: 5px;
     padding-bottom: 20px;
-    border-bottom: 1px solid $border;
+    border-bottom: 1px solid var(--border-bg);
+    transition: border 0.3s ease-in-out;
   }
 
   &__create {
-    color: $almost-white;
-    border: 1px solid $green;
+    color: var(--text);
+    width: 100%;
+    border: 1px solid var(--green);
     padding: 5px 10px 5px 10px;
     border-radius: 10px;
     font-size: 1rem;
     position: relative;
     display: flex;
-    height: 30px;
     jusctify-content: start;
     align-items: center;
     gap: 18px;
     transition: background-color 0.3s ease-in-out;
 
     &:hover {
-      background-color: $light-green;
+      background-color: var(--green-hover);
     }
     svg{
       width: 15px;
@@ -93,7 +82,7 @@
     border-radius: 10px;
     padding: 5px 10px 5px 10px;
     &:hover {
-      background-color: $border;
+      background-color: var(--border-bg);
     }
 
     svg{
@@ -101,7 +90,7 @@
       height: 20px;
       flex-shrink: 0;
     }
-    color: $almost-white;
+    color: var(--text);
     &--expand {
       transition: transform 0.3s ease-in-out;
       margin-bottom: 10px;
@@ -127,7 +116,7 @@
   &__analytics-container {
     gap: 5px;
     transition: all 0.1s ease-in-out;
-    border-bottom: 1px solid $border;
+    border-bottom: 1px solid var(--border-bg);
     padding-bottom: 15px;
     overflow: hidden;
     opacity: 1;

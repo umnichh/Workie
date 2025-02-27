@@ -1,0 +1,21 @@
+//NavSwitcher
+.nav-switcher {
+  svg {
+    transition: transform 0.1s ease-in-out;
+    width: 20px;
+    height: 20px;
+
+    path {
+      fill: var(--text);
+    }
+
+    &:hover {
+      fill: var(--text);
+    }
+  }
+  &__icon{
+    &--rotate{
+      transform: rotate(90deg);
+    }
+  }
+}

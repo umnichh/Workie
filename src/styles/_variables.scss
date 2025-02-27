@@ -1,27 +1,40 @@
-$body-black : rgb(47, 50, 67);
-$body-white : white;
 
-$header: rgb(55, 59, 78);
-$border: rgb(65, 69, 89);
-$border-white: #F1F1F1;
 
-$search-black: rgb(65, 69, 89);
-$search-white: #ECECEC;
-$search-white-border: #B6B6B6;
-$search-white-input: #777777;
-$search-black-input: rgb(176, 176, 176);
-
-$switcher: rgb(26, 26, 26);
-
-$main-black: rgb(47, 50, 67);
-$main-white: #FFFFFF;
-
-$almost-white: rgb(170, 178, 197);
-$almost-black: rgb(114, 114, 114);
-$green: rgb(104, 182, 155);
-$green-button: rgb(89, 159, 136);
-$light-green: rgb(56, 77, 71);
-$yellow: rgb(250, 239, 129);
-$purple: rgb(82, 94, 201);
 
 $button-border: rgb(85, 92, 125);
+
+body[data-theme="dark"] {
+  --body-bg: rgb(47, 50, 67);
+  --header-bg: rgb(55, 59, 78);
+  --header-btn: rgb(170, 178, 197);
+  --border-bg: rgb(65, 69, 89);
+  --search-bg: rgb(65, 69, 89);
+  --search-border: rgb(182, 182, 182);
+  --search-input: rgb(176, 176, 176);
+  --main-bg: rgb(47, 50, 67);
+  --toggle-text: rgb(170, 178, 197);
+  --text: rgb(170, 178, 197);
+  --toggle-bg: rgb(170, 178, 197);
+  --logo-bg: rgb(255, 255, 255);
+  --green: rgb(104, 182, 155);
+  --green-hover: rgb(56, 77, 71);
+  --switcher-bg: rgb(82, 94, 201);
+}
+
+body[data-theme="light"] {
+  --body-bg: rgb(255, 255, 255);
+  --header-bg: rgb(255, 255, 255);
+  --header-btn: rgb(122, 122, 122);
+  --border-bg: rgb(241, 241, 241);
+  --search-bg: rgb(236, 236, 236);
+  --search-border: rgb(182, 182, 182);
+  --search-input: rgb(119, 119, 119);
+  --main-bg: rgb(255, 255, 255);
+  --toggle-text: rgb(147, 147, 147);
+  --text: rgb(52, 52, 52);
+  --toggle-bg: rgb(239, 239, 239);
+  --logo-bg: rgb(0, 0, 0);
+  --green: rgb(104, 182, 155);
+  --green-hover: rgb(205, 253, 191);
+  --switcher-bg: rgb(250, 239, 129);;
+}

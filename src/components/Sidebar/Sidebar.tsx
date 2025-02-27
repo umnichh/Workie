@@ -10,15 +10,14 @@ import { useState } from "react";
 
 type SidebarProps = {
   isSideBarHidden: boolean,
-  isWhiteTheme: boolean
 }
 
 
-export default function Sidebar({isSideBarHidden, isWhiteTheme}: SidebarProps) {
+export default function Sidebar({isSideBarHidden}: SidebarProps) {
   const [isAnalyticsHidden, setIsAnalyticsHidden] = useState(false);
   const [isProjectsHidden, setIsProjectsHidden] = useState(false);
   return(
-    <aside className={`sidebar ${isSideBarHidden ? 'sidebar--hidden' : ''} ${isWhiteTheme ? 'sidebar--white' : ''}`}>
+    <nav className={`sidebar ${isSideBarHidden ? 'sidebar--hidden' : ''}`}>
       <div className="sidebar__top">
         <button className="sidebar__create">
           <CreateSvg/>
@@ -76,7 +75,7 @@ export default function Sidebar({isSideBarHidden, isWhiteTheme}: SidebarProps) {
           <div className="sidebar__projects-container"></div>
         </div>
       </div>
-    </aside>
+    </nav>
   )
 }
 
