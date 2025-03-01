@@ -6,7 +6,7 @@ type ButtonProps = {
   className?: string
 }
 
-export default function Button({svg, buttonText, className}: ButtonProps) {
+export default function MainButton({svg, buttonText, className}: ButtonProps) {
   return (
     <button className={className}>{svg} {buttonText}</button>
   )

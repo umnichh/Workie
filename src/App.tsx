@@ -14,17 +14,17 @@ export default function App() {
   }
 
   return (
-    <Routes>
-      <Route path="/" element={
-        <ProtectedRoute>
-          <div className="home">
-            <Header  isSideBarHidden={isSideBarHidden} setIsSideBarHidden={handleSidebarHidden}/>
-            <Sidebar isSideBarHidden={isSideBarHidden}/>
-            <Main/>
-          </div>
-        </ProtectedRoute>} />
-      <Route path="/login" element={<Login />} />
-    </Routes>
+      <Routes>
+        <Route path="/" element={
+          <ProtectedRoute>
+            <div className="home">
+              <Header  isSideBarHidden={isSideBarHidden} setIsSideBarHidden={handleSidebarHidden}/>
+              <Sidebar isSideBarHidden={isSideBarHidden}/>
+              <Main/>
+            </div>
+          </ProtectedRoute>} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
   )
 }
 

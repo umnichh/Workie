@@ -1,23 +1,24 @@
-import React, {useEffect, useState} from "react";
-import {Navigate} from "react-router-dom";
-import CalculatorSvg from "../../assets/Login/calculation-mathematics-calculator-svgrepo-com.svg?react";
-import CalendarSvg from "../../assets/Login/calendar-svgrepo-com.svg?react";
-import CheckSvg from "../../assets/Login/check-svgrepo-com.svg?react";
-import ClockSvg from "../../assets/Login/clock-svgrepo-com.svg?react";
-import EmailSvg from "../../assets/Login/link-svgrepo-com.svg?react";
-import FinanceSvg from "../../assets/Login/attach-svgrepo-com.svg?react";
-import FlagSvg from "../../assets/Login/flag-svgrepo-com.svg?react";
-import Graph1Svg from "../../assets/Login/settings-svgrepo-com.svg?react";
-import Graph2Svg from "../../assets/Login/graph-business-pie-analytics-marketing-svgrepo-com.svg?react";
-import Logo from "../../shared/Logo.tsx";
-import Background1 from "../../assets/Login/background1.jpg";
-import Background2 from "../../assets/Login/background2.jpg";
-import Background3 from "../../assets/Login/background3.jpg";
-import Background4 from "../../assets/Login/background4.jpg";
-import Background5 from "../../assets/Login/background5.jpg";
-import store from "../../app/store";
-
-
+import React, { useEffect, useState } from "react";
+import {
+  CalculatorSvg,
+  CalendarSvg,
+  CheckSvg,
+  ClockSvg,
+  EmailSvg,
+  FinanceSvg,
+  FlagSvg,
+  Graph1Svg,
+  Graph2Svg,
+  Background1,
+  Background2,
+  Background3,
+  Background4,
+  Background5
+} from '../../assets/Login/index';
+import Logo from "../../shared/Logo";
+import {
+  useMutation,
+} from "@tanstack/react-query";
 
 export default function Login() {
 
@@ -32,7 +33,6 @@ export default function Login() {
     {id: 3, src: Background4, isActive: false},
     {id: 4, src: Background5, isActive: false},
   ]);
-
   const backgroundSvgs = [
     {id: 0, src: CalculatorSvg, className: 'calculator'},
     {id: 1, src: CalendarSvg, className: 'calendar'},
@@ -45,32 +45,35 @@ export default function Login() {
     {id: 8, src: Graph2Svg, className: 'graph2'},
   ]
 
+
+    const loginMutation = useMutation({
+      mutationFn: async () => {
+          const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
+            method: 'POST',
+            body: JSON.stringify({
+              identifier: login,
+              password: password,
+            }),
+            credentials: "include"
+          })
+        if (!response.ok) {
+          throw new Error('Login failed.');
+        }
+
+        return response.json();
+        },
+      onSuccess: (data) => {
+        document.cookie = `token=${data.token}`
+        console.log(data)
+      },
+      onError: (error => {
+        console.error('Login error', error)
+      })
+    })
+
   function handleAuth(e: React.SyntheticEvent) {
     e.preventDefault();
-    handleLogin();
-  }
-
-  async function handleLogin() {
-    try {
-      const response = await fetch('http://217.114.2.143:8080/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          identifier: login,
-          password: password,
-        })
-      })
-
-
-      if (response.ok){
-        const data = await response.json();
-        document.cookie = `token=${data.token}; path=/;`;
-      }
-    } catch (e) {
-      console.error(e);
-    }
+    loginMutation.mutate();
   }
 
   function handleBackground() {
@@ -120,7 +123,7 @@ export default function Login() {
         ))}
       </div>
       <div  className="login__container">
-        <Logo isWhiteTheme={true} logoWidth="100px" logoHeight="100px" nameWidth="100%" nameHeight="150px"/>
+        <Logo logoWidth="100px" logoHeight="100px" nameWidth="100%" nameHeight="150px"/>
         <form action="" className="login__form" autoComplete="off">
           <fieldset>
             <legend className="login__legend">Логин</legend>

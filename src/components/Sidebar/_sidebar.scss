@@ -31,7 +31,6 @@
     }
   }
 
-
   &__top, &__bottom,  &__analytics,  &__analytics-container, &__projects-container, &__projects,  {
     display: flex;
     flex-direction: column;
@@ -115,8 +114,8 @@
 
   &__analytics-container {
     gap: 5px;
-    transition: all 0.1s ease-in-out;
     border-bottom: 1px solid var(--border-bg);
+    transition: all 0.1s ease-in-out, border 0.3s ease-in-out;
     padding-bottom: 15px;
     overflow: hidden;
     opacity: 1;

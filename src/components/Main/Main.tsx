@@ -5,7 +5,7 @@ import FilterSvg from '../../assets/Main/filter.svg?react'
 import SortSvg from '../../assets/Main/sort.svg?react'
 import HideSvg from '../../assets/Main/hide.svg?react'
 import LinkSvg from '../../assets/Main/link.svg?react'
-import Button from '../../shared/Button'
+import MainButton from './MainButton.tsx'
 
 export default function Main() {
   return (
@@ -19,10 +19,10 @@ export default function Main() {
         <button className='main__button' >
           Создать задачу
         </button>
-        <Button className='main__button' svg={< OwnerSvg />} buttonText="Куратор"/>
-        <Button className='main__button'  svg={< FilterSvg />} buttonText="Фильтровать"/>
-        <Button className='main__button' svg={< SortSvg />} buttonText="Сортировать"/>
-        <Button className='main__button'  svg={< HideSvg />} buttonText="Скрыть"/>
+        <MainButton className='main__button' svg={< OwnerSvg />} buttonText="Куратор"/>
+        <MainButton className='main__button' svg={< FilterSvg />} buttonText="Фильтровать"/>
+        <MainButton className='main__button' svg={< SortSvg />} buttonText="Сортировать"/>
+        <MainButton className='main__button' svg={< HideSvg />} buttonText="Скрыть"/>
         <button className='main__button'>
           Пригласить
           <LinkSvg />
