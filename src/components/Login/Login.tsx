@@ -18,6 +18,9 @@ export default function Login() {
           nameHeight="150px"
         />
         <LoginForm />
+        <div className="login__footer">
+          <p>Нет аккаунта? <a href="/register">Зарегистрироваться</a></p>
+        </div>
       </div>
     </div>
   );

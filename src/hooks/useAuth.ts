@@ -1,23 +1,18 @@
-import { useMutation } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
+import { useMutation } from '@tanstack/react-query';
+import { LoginCredentials, RegisterCredentials, User } from '../types/auth';
 
-interface LoginCredentials {
-  identifier: string;
-  password: string;
-}
-
-interface LoginResponse {
+interface AuthResponse {
+  user: User;
   token: string;
 }
 
 export function useAuth() {
-  const navigate = useNavigate();
-  const loginMutation = useMutation({
-    mutationFn: async (credentials: LoginCredentials) => {
-      const response = await fetch(`http://217.114.2.143:8080/auth/login`, {
+  const loginMutation = useMutation<AuthResponse, Error, LoginCredentials>({
+    mutationFn: async (credentials) => {
+      const response = await fetch('http://217.114.2.143:8080/auth/login', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(credentials),
         credentials: 'include',
@@ -27,16 +22,31 @@ export function useAuth() {
         throw new Error('Login failed');
       }
       
-      return await response.json() as Promise<LoginResponse>;
+      return response.json();
     },
-    onSuccess: (data) => {
-      document.cookie = `token=${data.token}`;
-      navigate('/');
-    },
-    onError: (error: Error) => {
-      console.error('Login error:', error.message);
-    }
   });
 
-  return { loginMutation };
+  const registerMutation = useMutation<AuthResponse, Error, RegisterCredentials>({
+    mutationFn: async (credentials) => {
+      const response = await fetch('http://217.114.2.143:8080/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(credentials),
+        credentials: 'include',
+      });
+      
+      if (!response.ok) {
+        throw new Error('Registration failed');
+      }
+      
+      return response.json();
+    },
+  });
+
+  return {
+    loginMutation,
+    registerMutation,
+  };
 }
