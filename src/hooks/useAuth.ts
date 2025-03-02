@@ -2,13 +2,13 @@ import { useMutation } from '@tanstack/react-query';
 import { LoginCredentials, RegisterCredentials, User } from '../types/auth';
 import {useNavigate} from "react-router-dom";
 
-
+const API_URL = import.meta.env.VITE_APP_URL;
 
 export function useAuth() {
   const navigate = useNavigate();
   const loginMutation = useMutation<User, Error, LoginCredentials>({
     mutationFn: async (credentials) => {
-      const response = await fetch(`${import.meta.env.APP_URL}/auth/register`, {
+      const response = await fetch(`${API_URL}/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ export function useAuth() {
 
   const registerMutation = useMutation<User, Error, RegisterCredentials>({
     mutationFn: async (credentials) => {
-      const response = await fetch(`${import.meta.env.BACK_URL}/auth/register`, {
+      const response = await fetch(`${API_URL}/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
