@@ -13,7 +13,6 @@ export interface User {
   id: string;
   email: string;
   identifier: string;
-  // добавьте другие необходимые поля
 }
 
 export interface AuthState {

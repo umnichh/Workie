@@ -8,7 +8,7 @@ export function useAuth() {
   const navigate = useNavigate();
   const loginMutation = useMutation<User, Error, LoginCredentials>({
     mutationFn: async (credentials) => {
-      const response = await fetch(`${API_URL}/auth/register`, {
+      const response = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -16,19 +16,19 @@ export function useAuth() {
         body: JSON.stringify(credentials),
         credentials: 'include',
       });
-      
+
       if (!response.ok) {
-        throw new Error('Login failed');
+        const errorText = await response.text();
+        throw new Error(errorText || 'Login failed');
       }
 
-      console.log(response);
       return response.json();
     },
     onSuccess: () => {
       navigate('/');
     },
-    onError: () => {
-      alert('Неверное имя пользователя или пароль');
+    onError: (error) => {
+      alert('Ошибка входа: ' + error.message);
     }
   });
 

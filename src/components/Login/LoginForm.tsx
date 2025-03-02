@@ -36,7 +36,7 @@ export function LoginForm() {
       <fieldset>
         <legend className="login__legend">Логин</legend>
         <input
-          name="login"
+          name="identifier"
           value={formData.identifier}
           onChange={handleChange}
           type="text"
