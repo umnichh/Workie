@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BackgroundImage, BackgroundSvg } from "./constants.ts";
+import { BackgroundImage, BackgroundSvg } from "../../types/background.ts";
 
 interface LoginBackgroundProps {
   backgroundImages: BackgroundImage[];

@@ -15,16 +15,3 @@
   }
 }
 
-// Дополнительные стили для формы регистрации
-.login__input {
-  &--error {
-    border-color: var(--error-color);
-  }
-}
-
-.login__error {
-  color: var(--error-color);
-  font-size: 12px;
-  margin-top: 4px;
-  display: block;
-}

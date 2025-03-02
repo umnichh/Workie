@@ -1,4 +1,4 @@
-import { backgroundImages, backgroundSvgs } from './constants';
+import { backgroundImages, backgroundSvgs } from '../../types/background.ts';
 import Logo from "../../shared/Logo";
 import { LoginBackground } from './LoginBackground';
 import { LoginForm } from './LoginForm';

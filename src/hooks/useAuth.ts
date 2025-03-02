@@ -1,15 +1,14 @@
 import { useMutation } from '@tanstack/react-query';
 import { LoginCredentials, RegisterCredentials, User } from '../types/auth';
+import {useNavigate} from "react-router-dom";
 
-interface AuthResponse {
-  user: User;
-  token: string;
-}
+
 
 export function useAuth() {
-  const loginMutation = useMutation<AuthResponse, Error, LoginCredentials>({
+  const navigate = useNavigate();
+  const loginMutation = useMutation<User, Error, LoginCredentials>({
     mutationFn: async (credentials) => {
-      const response = await fetch('http://217.114.2.143:8080/auth/login', {
+      const response = await fetch(`${import.meta.env.APP_URL}/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -21,14 +20,21 @@ export function useAuth() {
       if (!response.ok) {
         throw new Error('Login failed');
       }
-      
+
+      console.log(response);
       return response.json();
     },
+    onSuccess: () => {
+      navigate('/');
+    },
+    onError: () => {
+      alert('Неверное имя пользователя или пароль');
+    }
   });
 
-  const registerMutation = useMutation<AuthResponse, Error, RegisterCredentials>({
+  const registerMutation = useMutation<User, Error, RegisterCredentials>({
     mutationFn: async (credentials) => {
-      const response = await fetch('http://217.114.2.143:8080/auth/register', {
+      const response = await fetch(`${import.meta.env.BACK_URL}/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -40,9 +46,18 @@ export function useAuth() {
       if (!response.ok) {
         throw new Error('Registration failed');
       }
-      
+
+      console.log(response);
       return response.json();
     },
+    onSuccess: (data) => {
+      console.table(data);
+      navigate('/');
+  },
+    onError: (error) => {
+      console.error(error);
+      alert('Произошла ошибка');
+  }
   });
 
   return {

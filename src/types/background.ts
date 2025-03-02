@@ -13,7 +13,7 @@ import {
   Background3,
   Background4,
   Background5
-} from '../../assets/Login/index';
+} from '../assets/Login';
 
 export interface BackgroundImage {
   id: number;
