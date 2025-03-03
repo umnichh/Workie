@@ -14,9 +14,3 @@ export interface User {
   email: string;
   identifier: string;
 }
-
-export interface AuthState {
-  user: User | null;
-  token: string | null;
-  isAuthenticated: boolean;
-}

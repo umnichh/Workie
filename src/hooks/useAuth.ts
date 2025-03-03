@@ -32,7 +32,7 @@ export function useAuth() {
     }
   });
 
-  const registerMutation = useMutation<User, Error, RegisterCredentials>({
+  const registerMutation = useMutation<Error, RegisterCredentials>({
     mutationFn: async (credentials) => {
       const response = await fetch(`${API_URL}/auth/register`, {
         method: 'POST',
@@ -44,19 +44,19 @@ export function useAuth() {
       });
       
       if (!response.ok) {
-        throw new Error('Registration failed');
+        const errorText = await response.text();
+        throw new Error(errorText || 'Registration failed');
       }
 
       console.log(response);
       return response.json();
     },
     onSuccess: (data) => {
-      console.table(data);
+      console.log(data)
       navigate('/');
   },
     onError: (error) => {
       console.error(error);
-      alert('Произошла ошибка');
   }
   });
 
