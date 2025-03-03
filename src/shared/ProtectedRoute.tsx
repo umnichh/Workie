@@ -1,11 +1,16 @@
-// import {Navigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import Cookies from 'js-cookie';
 import {JSX} from "react";
 type ProtectedRouteProps = {
   children: JSX.Element
 }
 export default function ProtectedRoute({children} : ProtectedRouteProps) {
-  // if (!localStorage.getItem("token")) {
-  //   return <Navigate to="/login" />
-  // }
-  return (<>{children}</>)
+  const token = Cookies.get("set-token");
+  const navigate = useNavigate();
+  if (token) {
+    return (<>{children}</>)
+  } else {
+    navigate("/login");
+  }
+
 }
