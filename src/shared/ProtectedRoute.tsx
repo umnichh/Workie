@@ -1,8 +1,9 @@
 import {Outlet} from "react-router-dom";
+import Cookies from "js-cookie";
 
 export default function ProtectedRoute() {
-  // const isAuthenticated = document.cookie.includes('set-token');
-  //
+  const token = Cookies.get("token");
+  console.log(token);
   // if (!isAuthenticated) {
   //   return <Navigate to="/login" />;
   // }
