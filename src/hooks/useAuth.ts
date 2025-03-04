@@ -25,6 +25,7 @@ export function useAuth() {
       return response.json();
     },
     onSuccess: () => {
+
       navigate('/');
     },
     onError: (error) => {
