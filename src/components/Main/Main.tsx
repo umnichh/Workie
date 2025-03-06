@@ -10,7 +10,7 @@ import { useFetch } from '../../hooks/useFetch.ts'
 
 export default function Main() {
   const { fetchData } = useFetch({
-    api: '/projects',
+    api: '/project',
     method: 'POST',
     isBody: false
   });
