@@ -18,7 +18,7 @@ export default function Main() {
 
   useEffect(() => {
     fetchData.mutate(); 
-  })
+  }, [fetchData])
 
 
   return (
