@@ -3,7 +3,7 @@ import { FetchData } from "../types/fetch";
 
 const API_URL = import.meta.env.VITE_APP_URL;
 
-export const useFetch = <T>({api, method = 'POST', isBody = false} : FetchData) => {
+export const useFetch = <T>({api, method = 'POST', isBody = false, func} : FetchData) => {
   const fetchData = useMutation({
     mutationFn: async (data : T) => {
       const response = await fetch(`${API_URL}${api}`, {
@@ -27,10 +27,9 @@ export const useFetch = <T>({api, method = 'POST', isBody = false} : FetchData) 
       console.log(error)
     },
     onSuccess(data) {
+      func && func();
       console.log(`Данные из запроса ${api} `, data);
     },
   });
-  return {
-    fetchData
-  }
+  return { fetchData }
 };

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {LoginCredentials} from "../../types/auth.ts";
 import { useFetch } from "../../hooks/useFetch.ts";
+import { useNavigate } from "react-router-dom";
 
 interface FormData {
   identifier: string;
@@ -21,7 +22,13 @@ export function LoginForm() {
     }));
   };
 
-  const { fetchData } = useFetch<LoginCredentials>({api: '/auth/login', isBody: true});
+  const navigate = useNavigate();
+  const { fetchData } = useFetch<LoginCredentials>({
+    api: '/auth/login', 
+    isBody: true,
+    func: () => navigate('/')
+  });
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const credentials: LoginCredentials = {
