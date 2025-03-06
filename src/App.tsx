@@ -8,15 +8,10 @@ import './styles/style.scss'
 import { useState } from "react";
 import {Route, Routes} from "react-router-dom";
 import { AuthContext } from './app/AuthContext'
-import { User } from './types/auth'
 
 export default function App() {
   const [isSideBarHidden, setIsSideBarHidden] = useState(false);
-  const [user, setUser] = useState<User>({
-    id: '',
-    email: '',
-    identifier: ''
-  })
+  const [user, setUser] = useState<object>({})
   function handleSidebarHidden() {
     setIsSideBarHidden(!isSideBarHidden)
   }
