@@ -6,8 +6,16 @@ import SortSvg from '../../assets/Main/sort.svg?react'
 import HideSvg from '../../assets/Main/hide.svg?react'
 import LinkSvg from '../../assets/Main/link.svg?react'
 import MainButton from './MainButton.tsx'
+import { useFetch } from '../../hooks/useFetch.ts'
 
 export default function Main() {
+  const { fetchData } = useFetch({
+    api: '/projects',
+    method: 'POST',
+    isBody: false
+  });
+
+  fetchData.mutate();
   return (
     <main className='main' >
       <div className="main__button-container">

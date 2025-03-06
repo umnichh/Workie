@@ -1,18 +1,10 @@
 import { useMutation } from '@tanstack/react-query';
 import { LoginCredentials, RegisterCredentials, User } from '../types/auth';
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuthContext } from './useAuthContext';
 const API_URL = import.meta.env.VITE_APP_URL;
 
-export function useAuth() {
-  const { user, setUser } = useAuthContext();
+export const useAuth = () => {
   const navigate = useNavigate();
-  
-  useEffect(() => {
-    console.log(user)
-  }, [user])
-  
   const loginMutation = useMutation<User, Error, LoginCredentials>({
     mutationFn: async (credentials) => {
       const response = await fetch(`${API_URL}/auth/login`, {
@@ -29,10 +21,10 @@ export function useAuth() {
         throw new Error(errorText || 'Login failed');
       }
 
+      console.log(response);
       return response.json();
     },
-    onSuccess: (data) => {
-      setUser(data)
+    onSuccess: () => {
       navigate('/');
     },
     onError: (error) => {
@@ -59,8 +51,7 @@ export function useAuth() {
       console.log(response);
       return response.json();
     },
-    onSuccess: (data) => {
-      console.log(data)
+    onSuccess: () => {
       navigate('/');
   },
     onError: (error) => {
