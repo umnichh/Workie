@@ -26,7 +26,7 @@ export function RegisterForm() {
     }));
   };
 
-  const { fetchData } = useFetch<RegisterCredentials>({api: '/login', isBody: true});
+  const { fetchData } = useFetch<RegisterCredentials>({api: '/auth/login', isBody: true});
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const credentials: RegisterCredentials = {
