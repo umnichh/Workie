@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useAuth } from "../../hooks/useAuth";
 import { RegisterCredentials } from "../../types/auth.ts";
+import { useFetch } from "../../hooks/useFetch.ts";
 
 
 interface FormData {
@@ -17,8 +17,6 @@ export function RegisterForm() {
     confirmPassword: '',
     email: '',
   });
-  const { registerMutation } = useAuth();
-
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -28,6 +26,7 @@ export function RegisterForm() {
     }));
   };
 
+  const { fetchData } = useFetch<RegisterCredentials>({api: '/login', isBody: true});
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const credentials: RegisterCredentials = {
@@ -35,7 +34,7 @@ export function RegisterForm() {
       email: formData.email,
       password: formData.password,
     };
-    registerMutation.mutate(credentials);
+    fetchData.mutate(credentials);
   };
 
   return (
@@ -91,9 +90,9 @@ export function RegisterForm() {
       <button 
         type="submit" 
         className="login__button"
-        disabled={registerMutation.isPending}
+        disabled={fetchData.isPending}
       >
-        {registerMutation.isPending ? 'Регистрация...' : 'Зарегистрироваться'}
+        {fetchData.isPending ? 'Регистрация...' : 'Зарегистрироваться'}
       </button>
     </form>
   );

@@ -3,9 +3,9 @@ import { FetchData } from "../types/fetch";
 
 const API_URL = import.meta.env.VITE_APP_URL;
 
-export const useFetch = ({api, method, isBody} : FetchData) => {
+export const useFetch = <T>({api, method = 'POST', isBody = false} : FetchData) => {
   const fetchData = useMutation({
-    mutationFn: async (data) => {
+    mutationFn: async (data : T) => {
       const response = await fetch(`${API_URL}${api}`, {
         method: method,
         headers: {
@@ -24,7 +24,7 @@ export const useFetch = ({api, method, isBody} : FetchData) => {
       return response.json();
     },
     onError(error) {
-      throw new Error(`Ошибка в запросе ${api}, ${error}`);
+      console.log(error)
     },
     onSuccess(data) {
       console.log(`Данные из запроса ${api} `, data);
