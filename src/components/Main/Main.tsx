@@ -6,8 +6,16 @@ import SortSvg from '../../assets/Main/sort.svg?react'
 import HideSvg from '../../assets/Main/hide.svg?react'
 import LinkSvg from '../../assets/Main/link.svg?react'
 import MainButton from './MainButton.tsx'
+import { useContext } from 'react'
+import { AuthContext } from '../../app/AuthProvider.tsx'
 
 export default function Main() {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("AuthContext must be used within an AuthProvider");
+  }
+  const { user } = context;
+  console.log('main: ', user)
   return (
     <main className='main' >
       <div className="main__button-container">

@@ -1,18 +1,25 @@
 import { useMutation } from '@tanstack/react-query';
 import { LoginCredentials, RegisterCredentials, User } from '../types/auth';
 import {useNavigate} from "react-router-dom";
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AuthContext } from '../app/AuthProvider';
 
 const API_URL = import.meta.env.VITE_APP_URL;
 
 export function useAuth() {
+
+
   const navigate = useNavigate();
   const context = useContext(AuthContext);
   if (!context) {
     throw new Error("AuthContext must be used within an AuthProvider");
   }
-  const { setUser } = context;
+  const { user, setUser } = context;
+
+  useEffect(() => {
+    console.log(user)
+  }, [user])
+  
   const loginMutation = useMutation<User, Error, LoginCredentials>({
     mutationFn: async (credentials) => {
       const response = await fetch(`${API_URL}/auth/login`, {
