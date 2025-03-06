@@ -5,7 +5,7 @@ import { RegisterForm } from './RegisterForm';
 
 export default function Register() {
   return (
-    <div className="login"> {/* можно переиспользовать стили логина */}
+    <div className="login">
       <LoginBackground 
         backgroundImages={backgroundImages} 
         backgroundSvgs={backgroundSvgs} 

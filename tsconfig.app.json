@@ -16,9 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
-    /* Types */
-    "types": ["node", "js-cookie"],
-
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
