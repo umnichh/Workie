@@ -29,11 +29,11 @@ export function RegisterForm() {
 
   const navigate = useNavigate();
   const { fetchData } = useFetch<RegisterCredentials>({
-    api: '/auth/login', 
+    api: '/auth/register', 
     isBody: true,
     func: () => navigate('/')
   });
-  
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const credentials: RegisterCredentials = {
