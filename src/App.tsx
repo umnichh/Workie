@@ -7,27 +7,36 @@ import ProtectedRoute from './shared/ProtectedRoute'
 import './styles/style.scss'
 import { useState } from "react";
 import {Route, Routes} from "react-router-dom";
+import { AuthContext } from './app/AuthContext'
+import { User } from './types/auth'
 
 export default function App() {
   const [isSideBarHidden, setIsSideBarHidden] = useState(false);
+  const [user, setUser] = useState<User>({
+    id: '',
+    email: '',
+    identifier: ''
+  })
   function handleSidebarHidden() {
     setIsSideBarHidden(!isSideBarHidden)
   }
 
   return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route element={<ProtectedRoute />}>
-        <Route path="/" element={
-          <div className="home">
-            <Header isSideBarHidden={isSideBarHidden} setIsSideBarHidden={handleSidebarHidden}/>
-            <Sidebar isSideBarHidden={isSideBarHidden}/>
-            <Main/>
-          </div>
-        } />
-      </Route>
-    </Routes>
+    <AuthContext.Provider value={{user, setUser}}>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/" element={
+            <div className="home">
+              <Header isSideBarHidden={isSideBarHidden} setIsSideBarHidden={handleSidebarHidden}/>
+              <Sidebar isSideBarHidden={isSideBarHidden}/>
+              <Main/>
+            </div>
+          } />
+        </Route>
+      </Routes>
+    </AuthContext.Provider>
   )
 }
 
