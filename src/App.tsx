@@ -20,6 +20,7 @@ export default function App() {
   function handleSidebarHidden() {
     setIsSideBarHidden(!isSideBarHidden)
   }
+  console.log(user)
 
   return (
     <AuthContext.Provider value={{user, setUser}}>
