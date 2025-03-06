@@ -10,18 +10,16 @@ import { useFetch } from '../../hooks/useFetch.ts'
 import { useEffect } from 'react'
 
 export default function Main() {
+  const { fetchData } = useFetch({
+      api: '/project',
+      method: 'POST',
+      isBody: false
+  });
+
   useEffect(() => {
-    const fetchDataAsync = async () => {
-      const { fetchData } = useFetch({
-        api: '/project',
-        method: 'POST',
-        isBody: false
-      });
-      
-      fetchData.mutate(); 
-    };
-    fetchDataAsync();
-  }, []);
+    fetchData.mutate(); 
+  })
+
 
   return (
     <main className='main' >
