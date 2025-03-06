@@ -11,14 +11,17 @@ import { useEffect } from 'react'
 
 export default function Main() {
   useEffect(() => {
-    const { fetchData } = useFetch({
-      api: '/project',
-      method: 'POST',
-      isBody: false
-    });
-
-    fetchData.mutate();
-  }, [])
+    const fetchDataAsync = async () => {
+      const { fetchData } = useFetch({
+        api: '/project',
+        method: 'POST',
+        isBody: false
+      });
+      
+      fetchData.mutate(); 
+    };
+    fetchDataAsync();
+  }, []);
 
   return (
     <main className='main' >
