@@ -19,6 +19,8 @@ body[data-theme="dark"] {
   --green: rgb(104, 182, 155);
   --green-hover: rgb(56, 77, 71);
   --switcher-bg: rgb(82, 94, 201);
+  --create-div: rgb(47, 50, 67);
+  --create-border: rgb(97, 103, 116);
 }
 
 body[data-theme="light"] {
@@ -36,5 +38,7 @@ body[data-theme="light"] {
   --logo-bg: rgb(0, 0, 0);
   --green: rgb(104, 182, 155);
   --green-hover: rgb(205, 253, 191);
-  --switcher-bg: rgb(250, 239, 129);;
+  --switcher-bg: rgb(250, 239, 129);
+  --create-div: rgb(248, 248, 248);
+  --create-border: rgb(177, 177, 177);
 }

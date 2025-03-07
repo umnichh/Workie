@@ -21,7 +21,7 @@ button {
 }
 .header__menu-button path {
   transform-origin: center center;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 .header__menu-button:hover path {
   cursor: pointer;
@@ -91,7 +91,7 @@ button {
   transform: rotate(45deg);
 }
 .header__control-button path {
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 .header__control-button:hover path {
   cursor: pointer;

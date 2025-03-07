@@ -1,6 +1,8 @@
 @use "../../styles/variables" as *;
+@use '../../components/Sidebar/create';
 .sidebar {
   display: flex;
+  position: relative;
   grid-row: 2;
   grid-column: 1;
   flex-direction: column;
@@ -9,10 +11,8 @@
   border-right: 1px solid var(--border-bg);
   height: 100%;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  clip-path: inset(0px -10px -10px -10px);
-  transition: all 0.1s ease-in-out, background-color 0.3s ease-in-out , border 0.3s ease-in-out;
+  transition: all 0.1s ease-in-out, background-color 0.2s ease-in-out , border 0.2s ease-in-out;
   width: 200px;
-  overflow: hidden;
   z-index: 2;
 
   svg path{
@@ -31,7 +31,7 @@
     }
   }
 
-  &__top, &__bottom,  &__analytics,  &__analytics-container, &__projects-container, &__projects,  {
+  &__top, &__bottom,  &__analytics,  &__analytics-container, &__projects-container, &__projects {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -42,31 +42,7 @@
     gap: 5px;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--border-bg);
-    transition: border 0.3s ease-in-out;
-  }
-
-  &__create {
-    color: var(--text);
-    width: 100%;
-    border: 1px solid var(--green);
-    padding: 5px 10px 5px 10px;
-    border-radius: 10px;
-    font-size: 1rem;
-    position: relative;
-    display: flex;
-    jusctify-content: start;
-    align-items: center;
-    gap: 18px;
-    transition: background-color 0.3s ease-in-out;
-
-    &:hover {
-      background-color: var(--green-hover);
-    }
-    svg{
-      width: 15px;
-      height: 20px;
-      flex-shrink: 0;
-    }
+    transition: border 0.2s ease-in-out;
   }
 
   &__button {
@@ -91,7 +67,7 @@
     }
     color: var(--text);
     &--expand {
-      transition: transform 0.3s ease-in-out;
+      transition: transform 0.2s ease-in-out;
       margin-bottom: 10px;
       font-weight: 600;
     }
@@ -115,7 +91,7 @@
   &__analytics-container {
     gap: 5px;
     border-bottom: 1px solid var(--border-bg);
-    transition: all 0.1s ease-in-out, border 0.3s ease-in-out;
+    transition: all 0.1s ease-in-out, border 0.2s ease-in-out;
     padding-bottom: 15px;
     overflow: hidden;
     opacity: 1;

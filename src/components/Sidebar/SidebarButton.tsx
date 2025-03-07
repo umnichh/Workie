@@ -4,12 +4,13 @@ type SidebarProps = {
   Svg: React.FC,
   text: string,
   isHidden: boolean
-  type?: string
+  type?: string,
+  func?: Function;
 }
 
-export default function SidebarButton({Svg, text, isHidden, type = 'default'} : SidebarProps){
+export default function SidebarButton({Svg, text, isHidden} : SidebarProps){
   return(
-    <button className={`${type === 'create' ? 'sidebar__create' : 'sidebar__button'}`}>
+    <button className='sidebar__button'>
       <Svg />
       <span className={`sidebar__label ${isHidden ? 'sidebar__label--hidden' : ''}`}>{text}</span>
     </button>

@@ -24,7 +24,7 @@ export const useFetch = <T>({api, method = 'POST', isBody = false, func} : Fetch
       return response.json();
     },
     onError(error) {
-      console.log(error)
+      console.error(error)
     },
     onSuccess(data) {
       func && func();

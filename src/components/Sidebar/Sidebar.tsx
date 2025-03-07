@@ -8,42 +8,42 @@ import MapSvg from '../../assets/Sidebar/roadmap.svg?react'
 import ArrowDown from '../../assets/Shared/arrowdown.svg?react'
 import { useState } from "react";
 import SidebarButton from "./SidebarButton";
+import CreateButton from './CreateProject'
+import { useAppContext } from '../../hooks/useAppContext'
 
-type SidebarProps = {
-  isSideBarHidden: boolean,
-}
-
-export default function Sidebar({isSideBarHidden}: SidebarProps) {
+export default function Sidebar() {
   const [isAnalyticsHidden, setIsAnalyticsHidden] = useState(false);
   const [isProjectsHidden, setIsProjectsHidden] = useState(false);
+  const {isSidebarHidden, setIsCreate, isCreate} = useAppContext();
   return(
-    <nav className={`sidebar ${isSideBarHidden ? 'sidebar--hidden' : ''}`}>
+    <nav className={`sidebar ${isSidebarHidden ? 'sidebar--hidden' : ''}`}>
       <div className="sidebar__top">
-        <SidebarButton
+        <CreateButton
+          setIsCreate={setIsCreate}
+          isCreate={isCreate}
           Svg={CreateSvg}
           text="Создать"
-          isHidden={isSideBarHidden}
-          type="create"
+          isHidden={isSidebarHidden}
         />
         <SidebarButton
           Svg={HomeSvg}
           text="Главная"
-          isHidden={isSideBarHidden}
+          isHidden={isSidebarHidden}
         />
         <SidebarButton
           Svg={TaskSvg}
           text="Задачи"
-          isHidden={isSideBarHidden}
+          isHidden={isSidebarHidden}
         />
         <SidebarButton
           Svg={NotificationSvg}
           text="Уведомления"
-          isHidden={isSideBarHidden}
+          isHidden={isSidebarHidden}
         />
       </div>
       <div className="sidebar__bottom">
         <div className="sidebar__analitycs">
-          {!isSideBarHidden &&
+          {!isSidebarHidden &&
             <button className="sidebar__button sidebar__button--expand" onClick={() => setIsAnalyticsHidden(!isAnalyticsHidden)}>
             Аналитика
             <ArrowDown className={`sidebar__arrow ${isAnalyticsHidden ? 'sidebar__arrow--rotate' : ''}`}/>
@@ -53,22 +53,22 @@ export default function Sidebar({isSideBarHidden}: SidebarProps) {
             <SidebarButton
               Svg={GoalSvg}
               text="Цели"
-              isHidden={isSideBarHidden}
+              isHidden={isSidebarHidden}
             />
             <SidebarButton
               Svg={IdeaSvg}
               text="Идеи"
-              isHidden={isSideBarHidden}
+              isHidden={isSidebarHidden}
             />
             <SidebarButton
               Svg={MapSvg}
               text="Roadmap"
-              isHidden={isSideBarHidden}
+              isHidden={isSidebarHidden}
             />
           </div>
         </div>
         <div className="sidebar__projects">
-          {!isSideBarHidden &&
+          {!isSidebarHidden &&
           <button className="sidebar__button sidebar__button--expand" onClick={() => setIsProjectsHidden(!isProjectsHidden)}>
             Проекты
             <ArrowDown className={`sidebar__arrow ${isProjectsHidden ? 'sidebar__arrow--rotate' : ''}`}/>

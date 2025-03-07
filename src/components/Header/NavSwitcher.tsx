@@ -2,17 +2,17 @@ import React from "react";
 import MenuIcon from "../../assets/Header/menu.svg?react";
 
 type MenuButtonProps = {
-  isSideBarHidden: boolean;
-  setIsSideBarHidden: React.Dispatch<React.SetStateAction<boolean>>;
+  isSidebarHidden: boolean;
+  setIsSidebarHidden: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export default function NavSwitcher({ isSideBarHidden, setIsSideBarHidden }: MenuButtonProps) {
+export default function NavSwitcher({ isSidebarHidden, setIsSidebarHidden }: MenuButtonProps) {
   return (
     <button
       className="nav-switcher"
-      onClick={() => setIsSideBarHidden(!isSideBarHidden)}
+      onClick={() => setIsSidebarHidden(!isSidebarHidden)}
     >
-      <MenuIcon className={`nav-switcher__icon ${isSideBarHidden ? "nav-switcher__icon--rotate" : ""}`} />
+      <MenuIcon className={`nav-switcher__icon ${isSidebarHidden ? "nav-switcher__icon--rotate" : ""}`} />
     </button>
   );
 }
