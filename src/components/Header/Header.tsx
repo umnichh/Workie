@@ -1,14 +1,13 @@
-import React, { useContext } from "react";
 import HelpIcon from "../../assets/Header/help.svg?react";
 import ProfileIcon from "../../assets/Header/profile.svg?react";
 import LogoComponent from "../../shared/Logo.tsx";
 import ThemeSwitcher from "./ThemeSwitcher";
 import NavSwitcher from "./NavSwitcher.tsx";
 import Search from "./Search.tsx";
-import { useAppContext } from "../../hooks/useAppContext.tsx";
+import { useUIContext } from "../../hooks/useUIContext.ts";
 
 export default function HeaderComponent() {
-  const {isSidebarHidden, setIsSidebarHidden} = useAppContext()
+  const {isSidebarHidden, setIsSidebarHidden} = useUIContext()
   return (
     <header className="header">
       <div className="header__container">

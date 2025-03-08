@@ -1,18 +1,25 @@
 import React from "react";
+import { useUIContext } from "../../hooks/useUIContext";
+import { SidebarButtonProps } from "../../types/sidebar";
 
-type SidebarProps = {
-  Svg: React.FC,
-  text: string,
-  isHidden: boolean
-  type?: string,
-  func?: Function;
-}
+export default function SidebarButton({id, Svg, text, isActive, setButtons} : SidebarButtonProps){
+  const {isSidebarHidden} = useUIContext();
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const clickedButton = Number(e.currentTarget.dataset.button);
+    setButtons(prev =>  prev.map((item) => {
+      if (item.id === clickedButton){
+        return {...item, isActive: true}
+      } else {
+        return {...item, isActive : false}
+      }
+    })
+    )
+  }
 
-export default function SidebarButton({Svg, text, isHidden} : SidebarProps){
   return(
-    <button className='sidebar__button'>
+    <button className={`sidebar__button ${ isActive? 'sidebar__button--active' : ''}`} onClick={(e) => handleClick(e)} data-button={id}>
       <Svg />
-      <span className={`sidebar__label ${isHidden ? 'sidebar__label--hidden' : ''}`}>{text}</span>
+      <span className={`sidebar__label ${isSidebarHidden ? 'sidebar__label--hidden' : ''}`}>{text}</span>
     </button>
   )
 }

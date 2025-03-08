@@ -1,7 +1,13 @@
 import { useMutation } from "@tanstack/react-query";
-import { FetchData } from "../types/fetch";
 
 const API_URL = import.meta.env.VITE_APP_URL;
+
+export interface FetchData {
+  api: string,
+  method?: 'POST' | 'GET' | 'PUT' | 'DELETE',
+  isBody?: boolean,
+  func? : () => void
+}
 
 export const useFetch = <T>({api, method = 'POST', isBody = false, func} : FetchData) => {
   const fetchData = useMutation({

@@ -21,6 +21,7 @@ body[data-theme="dark"] {
   --switcher-bg: rgb(82, 94, 201);
   --create-div: rgb(47, 50, 67);
   --create-border: rgb(97, 103, 116);
+  --clicked-button: rgb(66, 66, 104);
 }
 
 body[data-theme="light"] {
@@ -41,4 +42,5 @@ body[data-theme="light"] {
   --switcher-bg: rgb(250, 239, 129);
   --create-div: rgb(248, 248, 248);
   --create-border: rgb(177, 177, 177);
+  --clicked-button: rgb(215, 215, 215);;
 }

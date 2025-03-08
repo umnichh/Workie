@@ -6,23 +6,10 @@ import SortSvg from '../../assets/Main/sort.svg?react'
 import HideSvg from '../../assets/Main/hide.svg?react'
 import LinkSvg from '../../assets/Main/link.svg?react'
 import MainButton from './MainButton.tsx'
-import { useFetch } from '../../hooks/useFetch.ts'
-import { useEffect } from 'react'
 
 export default function Main() {
-  const { fetchData } = useFetch({
-      api: '/project',
-      method: 'POST',
-      isBody: false
-  });
-
-  useEffect(() => {
-    fetchData.mutate(); 
-  }, [])
-
-
   return (
-    <main className='main' >
+    <main className='main'>
       <div className="main__button-container">
         <button className='main__button' >
           <TableSvg />

@@ -7,21 +7,35 @@ import ProtectedRoute from "./shared/ProtectedRoute";
 import "./styles/style.scss";
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import { AppContext } from "./hooks/useAppContext";
+import { UIContext } from "./hooks/useUIContext";
 
 export default function App() {
   const [isSidebarHidden, setIsSidebarHidden] = useState(false);
-  const [isCreate, setIsCreate] = useState(false);
+  const [isCreateDialog, setIsCreateDialog] = useState(false);
+  const [isCreate, setIsCreate] = useState('');
 
-  const handleCreate = (e : React.MouseEvent<HTMLDivElement>) => {
-    const target = e.target;
-    if (!(target as HTMLElement).className.includes("create")) {
-      setIsCreate(false);
+  const handleCreate = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+    console.log(target);
+    if (
+      (!target.closest(".create") && !target.closest(".project"))
+    ) {
+      setIsCreateDialog(false);
+      setIsCreate('');
     }
-  }
+  };
 
   return (
-    <AppContext.Provider value={{isSidebarHidden, isCreate, setIsSidebarHidden, setIsCreate}}>
+    <UIContext.Provider
+      value={{
+        isSidebarHidden,
+        isCreateDialog,
+        setIsSidebarHidden,
+        setIsCreateDialog,
+        isCreate,
+        setIsCreate,
+      }}
+    >
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -31,13 +45,13 @@ export default function App() {
             element={
               <div className="home" onClick={(e) => handleCreate(e)}>
                 <Header />
-                <Sidebar/>
+                <Sidebar />
                 <Main />
               </div>
             }
           />
         </Route>
       </Routes>
-    </AppContext.Provider>
+    </UIContext.Provider>
   );
 }

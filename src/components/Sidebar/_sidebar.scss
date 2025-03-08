@@ -1,5 +1,6 @@
 @use "../../styles/variables" as *;
 @use '../../components/Sidebar/create';
+@use '../../components//Sidebar//project';
 .sidebar {
   display: flex;
   position: relative;
@@ -48,16 +49,24 @@
   &__button {
     display: flex;
     justify-content: center;
+    color: var(--text);
     align-items: center;
     gap: 15px;
     font-size: 1rem;
-    transition: background-color 0.1s ease-in-out;
     width: 100%;
     justify-content: start;
     border-radius: 10px;
     padding: 5px 10px 5px 10px;
+    transition: background-color 0.2s ease-in-out;
     &:hover {
       background-color: var(--border-bg);
+    }
+
+    &--active{
+      background-color: var(--clicked-button);
+      &:hover {
+        background-color: var(--clicked-button);
+      }
     }
 
     svg{
@@ -65,12 +74,14 @@
       height: 20px;
       flex-shrink: 0;
     }
-    color: var(--text);
+
     &--expand {
       transition: transform 0.2s ease-in-out;
       margin-bottom: 10px;
       font-weight: 600;
     }
+
+
   }
 
   &__arrow {
