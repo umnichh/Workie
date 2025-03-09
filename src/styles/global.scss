@@ -1,0 +1,36 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+@use '../features/Header/header';
+@use '../features/Sidebar/sidebar';
+@use '../features/Main/main';
+@use '../features/Auth/Login/login';
+
+body {
+  margin: 0;
+  background-color: var(--body-bg);
+  font: 20px Inter, Arial, sans-serif;
+  transition: background-color 0.2s ease-in-out;
+  height: 100vh;
+}
+
+.body--white{
+  background-color: var(--border-bg);
+}
+
+#root{
+  height: 100%;
+}
+
+.home {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: 50px auto;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: all 1s ease-in-out;
+}
+
+
+
+

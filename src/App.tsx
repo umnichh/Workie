@@ -1,10 +1,10 @@
-import Header from "./components/Header/Header";
-import Sidebar from "./components/Sidebar/Sidebar";
-import Main from "./components/Main/Main";
-import Login from "./components/Login/Login";
-import Register from "./components/Register/Register";
-import ProtectedRoute from "./shared/ProtectedRoute";
-import "./styles/style.scss";
+import Header from "./features/Header/Header";
+import Sidebar from "./features/Sidebar/Sidebar";
+import Main from "./features/Main/Main";
+import Login from "./features/Auth/Login/Login";
+import Register from "./features/Auth/Register/Register";
+import ProtectedRoute from "./common/components/ProtectedRoute/ProtectedRoute";
+import "./styles/global.scss";
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { UIContext } from "./hooks/useUIContext";
