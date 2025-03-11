@@ -17,7 +17,7 @@ export default function Sidebar() {
   const projects = useQuery({
     queryKey: ['projects'],
     queryFn: async () => {
-      const response = await fetch(`${import.meta.env}/project`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_URL}/project`, {
         method: 'GET',
         credentials: 'include'
       })
