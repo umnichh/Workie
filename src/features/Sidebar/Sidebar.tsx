@@ -91,7 +91,7 @@ export default function Sidebar() {
             </button>
           )}
           <div className="sidebar__projects-container">
-            {projects.data.map((item : {name : string}) => (
+            {projects && projects.data.map((item : {name : string}) => (
               <button>{item.name}</button>
             ))}
           </div>
