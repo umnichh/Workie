@@ -6,18 +6,25 @@ import ArrowDown from "@/assets/Shared/arrowdown.svg?react";
 
 import { useState } from "react";
 import { useUIContext } from "@/hooks/useUIContext";
-import { useFetch } from "@/hooks/useFetch";
+import { useQuery } from "@tanstack/react-query";
 
 export default function Sidebar() {
   const [buttons, setButtons] = useState(SidebarButtons)
   const [isAnalyticsHidden, setIsAnalyticsHidden] = useState(false);
   const [isProjectsHidden, setIsProjectsHidden] = useState(false);
   const { isSidebarHidden } = useUIContext();
-  const  { fetchData } = useFetch({
-    api: '/auth/login', 
-    method: "GET",
+
+  const projects = useQuery({
+    queryKey: ['projects'],
+    queryFn: async () => {
+      const response = await fetch(`${import.meta.env}/project`, {
+        method: 'GET',
+        credentials: 'include'
+      })
+      return response.json();
+    }
   })
-  console.log(fetchData);
+  console.log(projects);
   return (
     <nav className={`sidebar ${isSidebarHidden ? "sidebar--hidden" : ""}`}>
       <div className="sidebar__top">
