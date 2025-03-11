@@ -90,7 +90,11 @@ export default function Sidebar() {
               />
             </button>
           )}
-          <div className="sidebar__projects-container">
+            <div
+            className={`sidebar__projects-container ${
+              isAnalyticsHidden ? "sidebar__projects-container--hidden" : ""
+            }`}
+          >
             {projects.isLoading && <p>Загрузка...</p>}
             {projects.data && projects.data.map((item : {name : string}) => (
               <button>{item.name}</button>
