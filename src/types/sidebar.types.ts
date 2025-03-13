@@ -1,24 +1,24 @@
-import React, { SVGProps } from "react";
+import React, { SVGProps } from 'react';
 
 export interface UIContextInterface {
-  isSidebarHidden: boolean,
-  setIsSidebarHidden: React.Dispatch<React.SetStateAction<boolean>>,
-  isCreateDialog: boolean,
-  setIsCreateDialog: React.Dispatch<React.SetStateAction<boolean>>
-  isCreate: string,
-  setIsCreate: React.Dispatch<React.SetStateAction<string>>
+  isSidebarHidden: boolean;
+  setIsSidebarHidden: React.Dispatch<React.SetStateAction<boolean>>;
+  isCreateDialog: boolean;
+  setIsCreateDialog: React.Dispatch<React.SetStateAction<boolean>>;
+  isCreate: string;
+  setIsCreate: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface SidebarProps {
   Svg: React.FC;
   text: string;
-};
+}
 
 export interface Button {
   id: string;
   svg: React.FC<SVGProps<SVGSVGElement>>;
   text: string;
-  position: "top" | "bottom";
+  position: 'top' | 'bottom';
 }
 
 export interface SidebarButtonProps {
@@ -43,4 +43,3 @@ export interface CreateButton {
   text: string;
   isActive: boolean;
 }
-

@@ -15,7 +15,6 @@ import {
   Background2,
 } from '@/assets/Login';
 
-
 export const backgroundImages: BackgroundImage[] = [
   { id: 0, src: Background1, isActive: false },
   { id: 1, src: Background2, isActive: false },

@@ -1,4 +1,4 @@
-body[data-theme="dark"] {
+body[data-theme='dark'] {
   --body-bg: rgb(47, 50, 67);
   --header-bg: rgb(55, 59, 78);
   --header-btn: rgb(170, 178, 197);
@@ -20,7 +20,7 @@ body[data-theme="dark"] {
   --button-border: rgb(85, 92, 125);
 }
 
-body[data-theme="light"] {
+body[data-theme='light'] {
   --body-bg: rgb(255, 255, 255);
   --header-bg: rgb(255, 255, 255);
   --header-btn: rgb(122, 122, 122);

@@ -1,5 +1,5 @@
-@use "../styles/variables" as *;
-@use "../styles/mixins" as *;
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
 @use '../components/Header/header';
 @use '../components/Sidebar/sidebar';
 @use '../pages/Home/home';
@@ -8,16 +8,19 @@
 body {
   margin: 0;
   background-color: var(--body-bg);
-  font: 20px Inter, Arial, sans-serif;
+  font:
+    20px Inter,
+    Arial,
+    sans-serif;
   transition: background-color 0.2s ease-in-out;
   height: 100vh;
 }
 
-.body--white{
+.body--white {
   background-color: var(--border-bg);
 }
 
-#root{
+#root {
   height: 100%;
 }
 
@@ -30,7 +33,3 @@ body {
   overflow: hidden;
   transition: all 1s ease-in-out;
 }
-
-
-
-

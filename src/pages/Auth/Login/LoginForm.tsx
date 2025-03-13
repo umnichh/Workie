@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { LoginCredentials } from "@/types/auth.types";
-import { useFetch } from "@/hooks/useFetch.ts";
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { LoginCredentials } from '@/types/auth.types';
+import { useFetch } from '@/hooks/useFetch.ts';
+import { useNavigate } from 'react-router-dom';
 
 interface FormData {
   identifier: string;
@@ -16,17 +16,17 @@ export function LoginForm() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const navigate = useNavigate();
   const { fetchData } = useFetch<LoginCredentials>({
-    api: '/auth/login', 
+    api: '/auth/login',
     isBody: true,
-    func: () => navigate('/')
+    func: () => navigate('/'),
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

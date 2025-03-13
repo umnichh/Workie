@@ -1,4 +1,3 @@
-
 export interface BackgroundImage {
   id: number;
   src: string;

@@ -1,7 +1,0 @@
-{
-  "rules": {
-    "react/react-in-jsx-scope": "off", // Отключаем правило, так как React 17+ не требует явного импорта
-    "react/jsx-uses-react": "off", // Отключаем, если используете новый JSX-трансформер
-    "prettier/prettier": "error"
-  }
-}

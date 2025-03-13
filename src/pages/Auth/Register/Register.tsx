@@ -1,5 +1,8 @@
-import { backgroundImages, backgroundSvgs } from '@/pages/Auth/Login/background.data';
-import Logo from "@/components/Logo/Logo";
+import {
+  backgroundImages,
+  backgroundSvgs,
+} from '@/pages/Auth/Login/background.data';
+import Logo from '@/components/Logo/Logo';
 import { LoginBackground } from '../Login/LoginBackground';
 import { RegisterForm } from './RegisterForm';
 
@@ -19,7 +22,12 @@ export default function Register() {
         />
         <RegisterForm />
         <div className="register__footer">
-          <p className='login__no-account'>Уже есть аккаунт? <a href="/login" className='login__link'>Войти</a></p>
+          <p className="login__no-account">
+            Уже есть аккаунт?{' '}
+            <a href="/login" className="login__link">
+              Войти
+            </a>
+          </p>
         </div>
       </div>
     </div>

@@ -1,24 +1,29 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation } from '@tanstack/react-query';
 
 const API_URL = import.meta.env.VITE_APP_URL;
 
 export interface FetchData {
-  api: string,
-  method?: 'POST' | 'GET' | 'PUT' | 'DELETE',
-  isBody?: boolean,
-  func? : () => void
+  api: string;
+  method?: 'POST' | 'GET' | 'PUT' | 'DELETE';
+  isBody?: boolean;
+  func?: () => void;
 }
 
-export const useFetch = <T>({api, method = 'POST', isBody = false, func} : FetchData) => {
+export const useFetch = <T>({
+  api,
+  method = 'POST',
+  isBody = false,
+  func,
+}: FetchData) => {
   const fetchData = useMutation({
-    mutationFn: async (data : T) => {
+    mutationFn: async (data: T) => {
       const response = await fetch(`${API_URL}${api}`, {
         method: method,
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: isBody ? JSON.stringify(data) : undefined,
-        credentials: "include",
+        credentials: 'include',
       });
 
       if (!response.ok) {
@@ -30,12 +35,12 @@ export const useFetch = <T>({api, method = 'POST', isBody = false, func} : Fetch
       return response.json();
     },
     onError(error) {
-      console.error(error)
+      console.error(error);
     },
     onSuccess(data) {
       func && func();
       console.log(`Данные из запроса ${api} `, data);
     },
   });
-  return { fetchData }
+  return { fetchData };
 };

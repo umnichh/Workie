@@ -1,8 +1,7 @@
-import { useState } from "react";
-import { RegisterCredentials } from "@/types/auth.types";
-import { useFetch } from "@/hooks/useFetch.ts";
-import { useNavigate } from "react-router-dom";
-
+import { useState } from 'react';
+import { RegisterCredentials } from '@/types/auth.types';
+import { useFetch } from '@/hooks/useFetch.ts';
+import { useNavigate } from 'react-router-dom';
 
 interface FormData {
   login: string;
@@ -21,9 +20,9 @@ export function RegisterForm() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -31,7 +30,7 @@ export function RegisterForm() {
   const { fetchData } = useFetch<RegisterCredentials>({
     api: '/auth/register',
     isBody: true,
-    func: () => navigate('/login')
+    func: () => navigate('/login'),
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

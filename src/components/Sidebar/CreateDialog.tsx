@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useUIContext } from "@/hooks/useUIContext";
-import { SidebarProps } from "@/types/sidebar.types";
-import { CreateDialogButtons } from "@/constants/sidebar.data";
+import React, { useEffect, useState } from 'react';
+import { useUIContext } from '@/hooks/useUIContext';
+import { SidebarProps } from '@/types/sidebar.types';
+import { CreateDialogButtons } from '@/constants/sidebar.data';
 import Create from './Create';
 
 export default function CreateDialog({ Svg, text }: SidebarProps) {
@@ -15,18 +15,22 @@ export default function CreateDialog({ Svg, text }: SidebarProps) {
   } = useUIContext();
 
   useEffect(() => {
-    setButtons(prev => prev.map((item) => ({
-      ...item,
-      isActive: false
-    })));
-  }, [isCreateDialog])
+    setButtons((prev) =>
+      prev.map((item) => ({
+        ...item,
+        isActive: false,
+      }))
+    );
+  }, [isCreateDialog]);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const type = e.currentTarget.dataset.button;
-    setButtons(prev => prev.map((item) => ({
-      ...item,
-      isActive: item.text === String(type)
-    })));
+    setButtons((prev) =>
+      prev.map((item) => ({
+        ...item,
+        isActive: item.text === String(type),
+      }))
+    );
     type && setIsCreate(type);
   };
   return (
@@ -37,18 +41,16 @@ export default function CreateDialog({ Svg, text }: SidebarProps) {
       >
         <Svg />
         <span
-          className={`create__label ${
-            isSidebarHidden ? "create__label--hidden" : ""
-          }`}
+          className={`create__label ${isSidebarHidden ? 'create__label--hidden' : ''
+            }`}
         >
           {text}
         </span>
       </button>
       {isCreateDialog && (
         <div
-          className={`create__options ${
-            isCreateDialog ? "create__options--show" : ""
-          }`}
+          className={`create__options ${isCreateDialog ? 'create__options--show' : ''
+            }`}
         >
           {buttons.map((item) => {
             return (
@@ -64,7 +66,7 @@ export default function CreateDialog({ Svg, text }: SidebarProps) {
           })}
         </div>
       )}
-      {isCreate === 'Проект' && (<Create />)}
+      {isCreate === 'Проект' && <Create />}
     </div>
   );
 }

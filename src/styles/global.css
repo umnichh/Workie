@@ -139,7 +139,10 @@ body {
 }
 
 #root {
-  font: 20px Inter, Arial, sans-serif;
+  font:
+    20px Inter,
+    Arial,
+    sans-serif;
   background: rgb(47, 50, 67);
   display: grid;
   grid-template-columns: 320px auto;

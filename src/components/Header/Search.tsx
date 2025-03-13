@@ -1,4 +1,4 @@
-import SearchIcon from "@/assets/Header/search.svg?react";
+import SearchIcon from '@/assets/Header/search.svg?react';
 
 export default function Search() {
   return (

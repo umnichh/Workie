@@ -1,38 +1,49 @@
-import { useState } from "react";
-import { useUIContext } from "@/hooks/useUIContext";
-import { useFetch } from "@/hooks/useFetch";
+import { useState } from 'react';
+import { useUIContext } from '@/hooks/useUIContext';
+import { useMutation } from '@tanstack/react-query';
 
 interface ProjectData {
   name: string;
 }
 
 export default function Create() {
-  const [projectName, setProjectName] = useState("");
+  const [projectName, setProjectName] = useState('');
   const { isCreate } = useUIContext();
-  const { fetchData } = useFetch<ProjectData>({
-    api: "/project",
-    method: "POST",
-    isBody: true,
-  });
   const { setIsCreate, setIsCreateDialog } = useUIContext();
 
+  const newProject = useMutation({
+    mutationFn: async (data: ProjectData) => {
+      const response = await fetch(`${import.meta.env.VITE_APP_URL}/project`, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        credentials: 'include',
+      });
+      if (!response.ok) {
+        throw new Error(`Ошибка создания проекта: ${await response.text()}`);
+      }
+      return response.json();
+    },
+    onError: (error) => {
+      console.error(error);
+    },
+  });
+
   const handleClick = () => {
-    if (projectName === "") {
+    if (projectName === '') {
       return null;
     }
 
     const projectData: ProjectData = {
       name: projectName,
     };
-
-    fetchData.mutate(projectData);
-    setIsCreate("");
+    newProject.mutate(projectData);
+    setIsCreate('');
     setIsCreateDialog(false);
   };
 
   return (
     <div
-      className={`project__options ${isCreate ? "project__options--show" : ""}`}
+      className={`project__options ${isCreate ? 'project__options--show' : ''}`}
     >
       <label htmlFor="project__label">Название проекта</label>
       <input
