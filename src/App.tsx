@@ -1,13 +1,15 @@
-import Header from "./features/Header/Header";
-import Sidebar from "./features/Sidebar/Sidebar";
-import Main from "./features/Main/Main";
-import Login from "./features/Auth/Login/Login";
-import Register from "./features/Auth/Register/Register";
-import ProtectedRoute from "./common/components/ProtectedRoute/ProtectedRoute";
+import Header from "./components/Header/Header";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Home from "./pages/Home/Home";
+import Login from "./pages/Auth/Login/Login";
+import Register from "./pages/Auth/Register/Register";
+import ProtectedRoute from "./utils/ProtectedRoute";
 import "./styles/global.scss";
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { UIContext } from "./hooks/useUIContext";
+import { Monitoring } from "react-scan/monitoring";
+
 
 export default function App() {
   const [isSidebarHidden, setIsSidebarHidden] = useState(false);
@@ -36,6 +38,10 @@ export default function App() {
         setIsCreate,
       }}
     >
+    <Monitoring
+            apiKey="s3YeLovyQ19EVp7buLw1ekSEVzGrRYRT" 
+            url="https://monitoring.react-scan.com/api/v1/ingest"
+    />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -46,7 +52,7 @@ export default function App() {
               <div className="home" onClick={(e) => handleCreate(e)}>
                 <Header />
                 <Sidebar />
-                <Main />
+                <Home />
               </div>
             }
           />

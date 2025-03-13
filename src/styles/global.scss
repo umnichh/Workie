@@ -1,9 +1,9 @@
 @use "../styles/variables" as *;
 @use "../styles/mixins" as *;
-@use '../features/Header/header';
-@use '../features/Sidebar/sidebar';
-@use '../features/Main/main';
-@use '../features/Auth/Login/login';
+@use '../components/Header/header';
+@use '../components/Sidebar/sidebar';
+@use '../pages/Home/home';
+@use '../pages/Auth/Login/login';
 
 body {
   margin: 0;

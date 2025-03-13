@@ -10,6 +10,3 @@ export { default as Graph2Svg } from './graph-business-pie-analytics-marketing-s
 
 export { default as Background1 } from './background1.jpg';
 export { default as Background2 } from './background2.jpg';
-export { default as Background3 } from './background3.jpg';
-export { default as Background4 } from './background4.jpg';
-export { default as Background5 } from './background5.jpg';
