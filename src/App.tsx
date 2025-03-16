@@ -9,23 +9,20 @@ import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { UIContext } from './hooks/useUIContext';
 import { Monitoring } from 'react-scan/monitoring';
-import { useWebSocket } from './hooks/useWSContext';
 
 export default function App() {
   const [isSidebarHidden, setIsSidebarHidden] = useState(false);
   const [isCreateDialog, setIsCreateDialog] = useState(false);
   const [isCreate, setIsCreate] = useState('');
-  const message = useWebSocket('ws://62.113.98.50:8080/ws');
-  console.log(message)
 
   const handleCreate = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLElement;
-    console.log(target);
     if (!target.closest('.create') && !target.closest('.project')) {
       setIsCreateDialog(false);
       setIsCreate('');
     }
   };
+
 
   return (
     <UIContext.Provider

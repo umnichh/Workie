@@ -14,17 +14,23 @@ export default function Sidebar() {
   const [isAnalyticsHidden, setIsAnalyticsHidden] = useState(false);
   const [isProjectsHidden, setIsProjectsHidden] = useState(false);
   const { isSidebarHidden } = useUIContext();
-
   const projects = useQuery({
-    queryKey: ['projects'],
+    queryKey: ['project'],
     queryFn: async () => {
       const response = await fetch(`${import.meta.env.VITE_APP_URL}/project`, {
         method: 'GET',
-        credentials: 'include',
-      });
+        credentials: 'include'
+      })
+
+      if (!response.ok) {
+        throw new Error(`Get projects error: ${await response.text()}`);
+      }
+
+      console.log(`Get projsects response`, response)
       return response.json();
     },
-  });
+  })
+
   return (
     <nav className={`sidebar ${isSidebarHidden ? 'sidebar--hidden' : ''}`}>
       <div className="sidebar__top">
@@ -92,21 +98,21 @@ export default function Sidebar() {
               }`}
           >
             {projects.isLoading && <p>Загрузка...</p>}
-            {projects.data &&
-              projects.data.map((item: { name: string }, index: number) => (
-                <SidebarButton
-                  id={`sbtn-projects-${index}`}
-                  setActive={setActive}
-                  active={active}
-                  text={item.name}
-                  color={String(
-                    projectsColors.find(
-                      (item: { id: number }) => item.id === index
-                    )?.color
-                  )}
-                  circle={true}
-                />
-              ))}
+            {projects.data?.map((item: { name: string, id: number }, index: number) => (
+              <SidebarButton
+                id={`sbtn-projects-${index}`}
+                setActive={setActive}
+                active={active}
+                key={item.id}
+                text={item.name}
+                color={String(
+                  projectsColors.find(
+                    (item: { id: number }) => item.id === index
+                  )?.color
+                )}
+                circle={true}
+              />
+            ))}
           </div>
         </div>
       </div>

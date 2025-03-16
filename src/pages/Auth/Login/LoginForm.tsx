@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { LoginCredentials } from '@/types/auth.types';
 import { useFetch } from '@/hooks/useFetch.ts';
 import { useNavigate } from 'react-router-dom';
+import { useMutation } from '@tanstack/react-query';
 
 interface FormData {
   identifier: string;
@@ -23,11 +24,27 @@ export function LoginForm() {
   };
 
   const navigate = useNavigate();
-  const { fetchData } = useFetch<LoginCredentials>({
-    api: '/auth/login',
-    isBody: true,
-    func: () => navigate('/'),
-  });
+
+  const auth = useMutation({
+    mutationFn: async (data: LoginCredentials) => {
+      const response = await fetch(`${import.meta.env.VITE_APP_URL}/auth/login`, {
+        method: "POST",
+        body: JSON.stringify(data),
+        credentials: 'include'
+      })
+
+      if (!response.ok) {
+        console.log('Login failed', (await response.text()));
+      }
+    },
+    onSuccess() {
+      navigate('/')
+    },
+    onError(error) {
+      console.error(error);
+    },
+  })
+
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,7 +52,7 @@ export function LoginForm() {
       identifier: formData.identifier,
       password: formData.password,
     };
-    fetchData.mutate(credentials);
+    auth.mutate(credentials);
   };
 
   return (
@@ -67,9 +84,9 @@ export function LoginForm() {
       <button
         type="submit"
         className="login__button"
-        disabled={fetchData.isPending}
+        disabled={auth.isPending}
       >
-        {fetchData.isPending ? 'Вход...' : 'Войти'}
+        {auth.isPending ? 'Вход...' : 'Войти'}
       </button>
     </form>
   );
