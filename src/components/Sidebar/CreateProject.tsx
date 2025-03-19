@@ -4,7 +4,7 @@ import { useCreateProject } from '@/hooks/useCreateProject';
 
 export const CreateProject = () => {
   const [projectName, setProjectName] = useState('');
-  const { isModal, setIsModal } = useUIContext();
+  const { modal, setModal } = useUIContext();
   const { mutate } = useCreateProject();
 
   const handleClick = (e: FormEvent) => {
@@ -16,12 +16,12 @@ export const CreateProject = () => {
       name: projectName,
     };
     mutate(newProject);
-    setIsModal(false);
+    setModal('');
   };
 
   return (
     <form
-      className={`modal project__options ${isModal ? 'project__options--show' : ''}`}
+      className={`modal project__options ${modal ? 'project__options--show' : ''}`}
       onSubmit={handleClick}
     >
       <label htmlFor="project__label">Название проекта</label>

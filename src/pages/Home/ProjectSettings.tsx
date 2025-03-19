@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom"
 import { useDeleteProject } from '@/hooks/useDeleteProject'
-import { useUIContext } from "@/hooks/useUIContext";
 
 export const ProjectSettings = () => {
   const { projectId } = useParams();

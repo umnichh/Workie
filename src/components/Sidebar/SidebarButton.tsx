@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom';
 
 export const SidebarButton = ({ Svg, text, color, circle, link }: SidebarButtonProps) => {
 
-  const { isSidebarHidden, setIsModal } = useUIContext();
+  const { isSidebarHidden, setModal } = useUIContext();
   const handleClick = () => {
-    setIsModal(false);
+    setModal('');
   };
   return (
     <NavLink

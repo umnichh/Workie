@@ -6,18 +6,18 @@ import { CreateProject } from './CreateProject';
 
 export const CreateOptions = ({ Svg, text }: SidebarProps) => {
   const [buttons,] = useState(CreateOptionsButtons);
-  const { isModal, setIsModal, isSidebarHidden } = useUIContext();
+  const { modal, setModal, isSidebarHidden } = useUIContext();
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const type = e.currentTarget.dataset.button;
-    type && setIsModal(type);
+    type && setModal(type);
   };
 
   return (
     <div className="modal create">
       <button
         className="create__button"
-        onClick={() => setIsModal(!isModal)}
+        onClick={() => setModal('')}
       >
         <Svg />
         <span
@@ -27,7 +27,7 @@ export const CreateOptions = ({ Svg, text }: SidebarProps) => {
           {text}
         </span>
       </button>
-      {isModal && (
+      {modal && (
         <div className="create__options">
           {buttons.map((item) => {
             return (
@@ -45,7 +45,7 @@ export const CreateOptions = ({ Svg, text }: SidebarProps) => {
           })}
         </div>
       )}
-      {isModal === 'Проект' && <CreateProject />}
+      {modal === 'Проект' && <CreateProject />}
     </div>
   );
 }

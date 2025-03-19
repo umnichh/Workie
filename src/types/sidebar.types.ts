@@ -3,8 +3,8 @@ import React, { SVGProps } from 'react';
 export interface UIContextInterface {
   isSidebarHidden: boolean;
   setIsSidebarHidden: React.Dispatch<React.SetStateAction<boolean>>;
-  isModal: boolean | string;
-  setIsModal: React.Dispatch<React.SetStateAction<boolean | string>>;
+  modal: string;
+  setModal: React.Dispatch<React.SetStateAction<string>>;
   projects: Project[] | null;
   setProjects: React.Dispatch<React.SetStateAction<Project[] | null>>;
   handleModal: Function;

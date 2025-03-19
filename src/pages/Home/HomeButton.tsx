@@ -11,19 +11,19 @@ type ButtonProps = {
 
 export const HomeButton = ({ BeforeIcon, text, AfterIcon, Modal }: ButtonProps) => {
   const { projectId } = useParams();
-  const { setIsModal, isModal } = useUIContext();
+  const { setModal, modal } = useUIContext();
 
   useEffect(() => {
-    console.log(isModal)
-    setIsModal(false);
+    console.log(modal)
+    setModal('');
   }, [projectId])
 
   useEffect(() => {
-    console.log(isModal)
-  }, [isModal])
+    console.log(modal)
+  }, [modal])
 
   const handleClick = () => {
-    setIsModal(text)
+    setModal(text)
   }
 
   return (
@@ -33,7 +33,7 @@ export const HomeButton = ({ BeforeIcon, text, AfterIcon, Modal }: ButtonProps) 
         {text}
         {AfterIcon && <AfterIcon />}
       </button>
-      {isModal === text && Modal && <Modal />}
+      {modal === 'Настройки' && Modal && <Modal />}
     </div>
   );
 };

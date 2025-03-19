@@ -6,7 +6,7 @@ import { useWebSocket } from "@/hooks/useWebSocket";
 
 export const UIContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [isSidebarHidden, setIsSidebarHidden] = useState<boolean>(false);
-  const [isModal, setIsModal] = useState<boolean | string>(false);
+  const [modal, setModal] = useState<string>('');
   const [currentProject, setCurrentProject] = useState<number | null>(null)
   const [projects, setProjects] = useState<Project[] | null>(null);
   const { isConnected } = useWebSocket();
@@ -15,7 +15,7 @@ export const UIContextProvider = ({ children }: { children: React.ReactNode }) =
   const handleModal = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLElement;
     if (!target.closest('.modal')) {
-      setIsModal(false);
+      setModal('');
     }
   };
 
@@ -25,8 +25,8 @@ export const UIContextProvider = ({ children }: { children: React.ReactNode }) =
         value={{
           isSidebarHidden,
           setIsSidebarHidden,
-          isModal,
-          setIsModal,
+          modal,
+          setModal,
           projects,
           setProjects,
           handleModal,
