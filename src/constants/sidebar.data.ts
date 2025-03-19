@@ -14,40 +14,46 @@ export const SidebarButtons: Button[] = [
     svg: HomeSvg,
     text: 'Главная',
     position: 'top',
+    link: '/',
   },
   {
     id: 'sbtn-2',
     svg: TaskSvg,
     text: 'Задачи',
     position: 'top',
+    link: '/tasks'
   },
   {
     id: 'sbtn-3',
     svg: NotificationSvg,
     text: 'Уведомления',
     position: 'top',
+    link: '/notifications'
   },
   {
     id: 'sbtn-4',
     svg: GoalSvg,
     text: 'Цели',
     position: 'bottom',
+    link: '/goals'
   },
   {
     id: 'sbtn-5',
     svg: IdeaSvg,
     text: 'Идеи',
     position: 'bottom',
+    link: '/ideas'
   },
   {
     id: 'sbtn-6',
     svg: MapSvg,
     text: 'Roadmap',
     position: 'bottom',
+    link: '/roadmaps'
   },
 ];
 
-export const CreateDialogButtons: CreateButton[] = [
+export const CreateOptionsButtons: CreateButton[] = [
   { src: TaskSvg, text: 'Задача', isActive: false },
   { src: ProjectSvg, text: 'Проект', isActive: false },
   { src: GoalSvg, text: 'Цель', isActive: false },

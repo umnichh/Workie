@@ -1,9 +1,9 @@
-import Logo from '@/components/Logo/Logo.tsx';
+import { Logo } from '@/components/Logo/Logo.tsx';
 import { backgroundImages, backgroundSvgs } from './background.data.ts';
 import { LoginBackground } from './LoginBackground.tsx';
 import { LoginForm } from './LoginForm.tsx';
 
-export default function Login() {
+export const Login = () => {
   return (
     <div className="login">
       <LoginBackground

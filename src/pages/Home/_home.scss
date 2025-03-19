@@ -1,4 +1,6 @@
 @use '../../styles/variables' as *;
+@use '../Home/settings' as *;
+
 .main {
   background-color: var(--main-bg);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -11,7 +13,6 @@
   &__button-container {
     display: flex;
     justify-content: start;
-    align-items: center;
     gap: 15px;
     margin: 20px 0px 0px 20px;
   }
@@ -33,6 +34,7 @@
 
     svg {
       width: 15px;
+      height: 15px;
       path {
         fill: var(--text);
       }

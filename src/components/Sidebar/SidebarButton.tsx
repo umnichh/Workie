@@ -1,22 +1,19 @@
 import { useUIContext } from '@/hooks/useUIContext';
 import { SidebarButtonProps } from '../../types/sidebar.types';
+import { NavLink } from 'react-router-dom';
 
-export default function SidebarButton({
-  Svg,
-  text,
-  color,
-  active,
-  setActive,
-  circle,
-  id,
-}: SidebarButtonProps) {
-  const { isSidebarHidden } = useUIContext();
+export const SidebarButton = ({ Svg, text, color, circle, link }: SidebarButtonProps) => {
+
+  const { isSidebarHidden, setIsModal } = useUIContext();
   const handleClick = () => {
-    setActive(id);
+    setIsModal(false);
   };
   return (
-    <button
-      className={`sidebar__button ${active === id ? 'sidebar__button--active' : ''}`}
+    <NavLink
+      to={link}
+      className={({ isActive }) =>
+        `sidebar__button ${isActive ? 'sidebar__button--active' : ''}`
+      }
       onClick={handleClick}
     >
       {circle && (
@@ -35,6 +32,6 @@ export default function SidebarButton({
       >
         {text}
       </span>
-    </button>
+    </NavLink>
   );
 }

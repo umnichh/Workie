@@ -1,0 +1,23 @@
+.settings{
+  margin-top: 5px;
+  padding: 10px 10px;
+  transition: background-color 0.2s ease-in-out;
+  z-index: 1000;
+  width: 150px;
+  border: 1px solid var(--create-border);
+  border-radius: 5px;
+  gap: 5px;
+  background-color: var(--create-div);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+  &__delete{
+    color: var(--delete-button);
+    width: 100%;
+    height: 30px;
+    &:hover {
+          background-color: var(--clicked-button);
+    }
+  }
+}

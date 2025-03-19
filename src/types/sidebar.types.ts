@@ -3,10 +3,19 @@ import React, { SVGProps } from 'react';
 export interface UIContextInterface {
   isSidebarHidden: boolean;
   setIsSidebarHidden: React.Dispatch<React.SetStateAction<boolean>>;
-  isCreateDialog: boolean;
-  setIsCreateDialog: React.Dispatch<React.SetStateAction<boolean>>;
-  isCreate: string;
-  setIsCreate: React.Dispatch<React.SetStateAction<string>>;
+  isModal: boolean | string;
+  setIsModal: React.Dispatch<React.SetStateAction<boolean | string>>;
+  projects: Project[] | null;
+  setProjects: React.Dispatch<React.SetStateAction<Project[] | null>>;
+  handleModal: Function;
+  currentProject: number | null;
+  setCurrentProject: React.Dispatch<React.SetStateAction<number | null>>;
+}
+
+export interface Project {
+  id: number,
+  name: string
+  createdAt: string
 }
 
 export interface SidebarProps {
@@ -19,19 +28,19 @@ export interface Button {
   svg: React.FC<SVGProps<SVGSVGElement>>;
   text: string;
   position: 'top' | 'bottom';
+  link: string
 }
 
 export interface SidebarButtonProps {
   Svg?: React.FC<SVGProps<SVGSVGElement>>;
-  id: string;
+  id?: number;
   text: string;
-  setActive: React.Dispatch<React.SetStateAction<string>>;
-  active: string;
   color?: string;
   circle?: boolean;
+  link: string
 }
 
-export interface CreateDialogProps {
+export interface CreateOptionsProps {
   Svg: React.FC<SVGProps<SVGSVGElement>>;
   text: string;
   setButtons: React.Dispatch<React.SetStateAction<Button[]>>;

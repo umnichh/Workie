@@ -18,6 +18,7 @@ body[data-theme='dark'] {
   --create-border: rgb(97, 103, 116);
   --clicked-button: rgb(70, 73, 102);
   --button-border: rgb(85, 92, 125);
+  --delete-button: rgb(196, 63, 63);
 }
 
 body[data-theme='light'] {
@@ -40,4 +41,5 @@ body[data-theme='light'] {
   --create-border: rgb(177, 177, 177);
   --clicked-button: rgb(215, 215, 215);
   --button-border: rgb(85, 92, 125);
+  --delete-button: rgb(177, 51, 51);
 }

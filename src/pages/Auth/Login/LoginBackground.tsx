@@ -6,10 +6,7 @@ interface LoginBackgroundProps {
   backgroundSvgs: BackgroundSvg[];
 }
 
-export function LoginBackground({
-  backgroundImages,
-  backgroundSvgs,
-}: LoginBackgroundProps) {
+export const LoginBackground = ({ backgroundImages, backgroundSvgs, }: LoginBackgroundProps) => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [, setButtonsImage] = useState(1);
   const [backgrounds, setBackgrounds] = useState(backgroundImages);

@@ -1,49 +1,31 @@
-import { SidebarButtons } from '../../constants/sidebar.data';
-import SidebarButton from './SidebarButton';
-import CreateButton from './CreateDialog';
 import CreateSvg from '@/assets/Sidebar/create.svg?react';
 import ArrowDown from '@/assets/Shared/arrowdown.svg?react';
+import { SidebarButtons } from '../../constants/sidebar.data';
+import { SidebarButton } from './SidebarButton';
+import { CreateOptions } from './CreateOptions';
 import { projectsColors } from '@/constants/projects.colors';
-
 import { useState } from 'react';
 import { useUIContext } from '@/hooks/useUIContext';
-import { useQuery } from '@tanstack/react-query';
+import { Project } from '@/types/sidebar.types';
+import { useProjects } from '@/hooks/useProjects';
 
-export default function Sidebar() {
-  const [active, setActive] = useState('sbtn-1');
+export const Sidebar = () => {
   const [isAnalyticsHidden, setIsAnalyticsHidden] = useState(false);
   const [isProjectsHidden, setIsProjectsHidden] = useState(false);
   const { isSidebarHidden } = useUIContext();
-  const projects = useQuery({
-    queryKey: ['project'],
-    queryFn: async () => {
-      const response = await fetch(`${import.meta.env.VITE_APP_URL}/project`, {
-        method: 'GET',
-        credentials: 'include'
-      })
-
-      if (!response.ok) {
-        throw new Error(`Get projects error: ${await response.text()}`);
-      }
-
-      console.log(`Get projsects response`, response)
-      return response.json();
-    },
-  })
+  const { data, isPending } = useProjects();
 
   return (
     <nav className={`sidebar ${isSidebarHidden ? 'sidebar--hidden' : ''}`}>
       <div className="sidebar__top">
-        <CreateButton Svg={CreateSvg} text="Создать" />
+        <CreateOptions Svg={CreateSvg} text="Создать" />
         {SidebarButtons.filter((item) => item.position === 'top').map(
           (item) => (
             <SidebarButton
-              id={item.id}
-              setActive={setActive}
-              active={active}
               key={item.id}
               Svg={item.svg}
               text={item.text}
+              link={item.link}
             />
           )
         )}
@@ -69,12 +51,10 @@ export default function Sidebar() {
             {SidebarButtons.filter((item) => item.position === 'bottom').map(
               (item) => (
                 <SidebarButton
-                  id={item.id}
-                  setActive={setActive}
-                  active={active}
                   key={item.text}
                   Svg={item.svg}
                   text={item.text}
+                  link={item.link}
                 />
               )
             )}
@@ -97,22 +77,22 @@ export default function Sidebar() {
             className={`sidebar__projects-container ${isProjectsHidden ? 'sidebar__projects-container--hidden' : ''
               }`}
           >
-            {projects.isLoading && <p>Загрузка...</p>}
-            {projects.data?.map((item: { name: string, id: number }, index: number) => (
-              <SidebarButton
-                id={`sbtn-projects-${index}`}
-                setActive={setActive}
-                active={active}
-                key={item.id}
-                text={item.name}
-                color={String(
-                  projectsColors.find(
-                    (item: { id: number }) => item.id === index
-                  )?.color
-                )}
-                circle={true}
-              />
-            ))}
+            {isPending
+              ? <div>LOADING PROJECTS...</div>
+              : data && data.map((item: Project, index: number) => (
+                <SidebarButton
+                  id={item.id}
+                  key={item.id}
+                  text={item.name}
+                  link={`/projects/${item.id}`}
+                  color={String(
+                    projectsColors.find(
+                      (item: { id: number }) => item.id === index
+                    )?.color
+                  )}
+                  circle={true}
+                />
+              ))}
           </div>
         </div>
       </div>

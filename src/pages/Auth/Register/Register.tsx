@@ -2,11 +2,11 @@ import {
   backgroundImages,
   backgroundSvgs,
 } from '@/pages/Auth/Login/background.data';
-import Logo from '@/components/Logo/Logo';
+import { Logo } from '@/components/Logo/Logo';
 import { LoginBackground } from '../Login/LoginBackground';
 import { RegisterForm } from './RegisterForm';
 
-export default function Register() {
+export const Register = () => {
   return (
     <div className="login">
       <LoginBackground

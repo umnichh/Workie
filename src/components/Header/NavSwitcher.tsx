@@ -6,10 +6,7 @@ type MenuButtonProps = {
   setIsSidebarHidden: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export default function NavSwitcher({
-  isSidebarHidden,
-  setIsSidebarHidden,
-}: MenuButtonProps) {
+export const NavSwitcher = ({ isSidebarHidden, setIsSidebarHidden, }: MenuButtonProps) => {
   return (
     <button
       className="nav-switcher"

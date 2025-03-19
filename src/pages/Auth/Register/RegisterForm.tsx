@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { RegisterCredentials } from '@/types/auth.types';
-import { useFetch } from '@/hooks/useFetch.ts';
 import { useNavigate } from 'react-router-dom';
+import { useMutation } from '@tanstack/react-query';
 
 interface FormData {
   login: string;
@@ -10,7 +10,7 @@ interface FormData {
   email: string;
 }
 
-export function RegisterForm() {
+export const RegisterForm = () => {
   const [formData, setFormData] = useState<FormData>({
     login: '',
     password: '',
@@ -27,11 +27,26 @@ export function RegisterForm() {
   };
 
   const navigate = useNavigate();
-  const { fetchData } = useFetch<RegisterCredentials>({
-    api: '/auth/register',
-    isBody: true,
-    func: () => navigate('/login'),
-  });
+
+  const auth = useMutation({
+    mutationFn: async (data: RegisterCredentials) => {
+      const response = await fetch(`${import.meta.env.VITE_APP_URL}/auth/register`, {
+        method: "POST",
+        body: JSON.stringify(data),
+        credentials: 'include'
+      })
+
+      if (!response.ok) {
+        console.log('Login failed', (await response.text()));
+      }
+    },
+    onSuccess() {
+      navigate('/login')
+    },
+    onError(error) {
+      console.error(error);
+    },
+  })
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -40,7 +55,7 @@ export function RegisterForm() {
       email: formData.email,
       password: formData.password,
     };
-    fetchData.mutate(credentials);
+    auth.mutate(credentials);
   };
 
   return (
@@ -96,9 +111,9 @@ export function RegisterForm() {
       <button
         type="submit"
         className="login__button"
-        disabled={fetchData.isPending}
+        disabled={auth.isPending}
       >
-        {fetchData.isPending ? 'Регистрация...' : 'Зарегистрироваться'}
+        {auth.isPending ? 'Регистрация...' : 'Зарегистрироваться'}
       </button>
     </form>
   );

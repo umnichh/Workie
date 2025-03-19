@@ -1,20 +1,14 @@
 import LogoPng from '@/assets/Shared/logo.png';
 import LogoNameSvg from '@/assets/Shared/logoname.svg?react';
 
-type LogoProps = {
+interface LogoProps {
   logoWidth: string;
   logoHeight: string;
   nameHeight: string;
   nameWidth?: string;
-  nameColor?: string;
 };
-export default function Logo({
-  logoWidth,
-  logoHeight,
-  nameHeight,
-  nameWidth,
-  nameColor,
-}: LogoProps) {
+
+export const Logo = ({ logoWidth, logoHeight, nameHeight, nameWidth, }: LogoProps) => {
   return (
     <a
       href="https://www.youtube.com/watch?v=SuyDe1VXaEk&ab_channel=FACE-Topic"

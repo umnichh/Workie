@@ -1,6 +1,6 @@
 import SearchIcon from '@/assets/Header/search.svg?react';
 
-export default function Search() {
+export const Search = () => {
   return (
     <div className="search">
       <SearchIcon className="search__icon" />

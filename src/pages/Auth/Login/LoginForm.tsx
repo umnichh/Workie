@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { LoginCredentials } from '@/types/auth.types';
-import { useFetch } from '@/hooks/useFetch.ts';
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 
@@ -9,7 +8,7 @@ interface FormData {
   password: string;
 }
 
-export function LoginForm() {
+export const LoginForm = () => {
   const [formData, setFormData] = useState<FormData>({
     identifier: '',
     password: '',
