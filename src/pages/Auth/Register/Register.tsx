@@ -1,15 +1,12 @@
-import {
-  backgroundImages,
-  backgroundSvgs,
-} from '@/pages/Auth/Login/background.data';
+import { backgroundImages, backgroundSvgs } from '@/constants/background.data';
 import { Logo } from '@/components/Logo/Logo';
-import { LoginBackground } from '../Login/LoginBackground';
+import { AuthBackground } from '@/pages/Auth/AuthBackground';
 import { RegisterForm } from './RegisterForm';
 
 export const Register = () => {
   return (
     <div className="login">
-      <LoginBackground
+      <AuthBackground
         backgroundImages={backgroundImages}
         backgroundSvgs={backgroundSvgs}
       />

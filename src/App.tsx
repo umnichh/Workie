@@ -6,7 +6,7 @@ import { Register } from './pages/Auth/Register/Register';
 import { ProtectedRoute } from './utils/ProtectedRoute';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Monitoring } from 'react-scan/monitoring';
-import { UIContextProvider } from './contexts/UIContext/UIContext';
+import { UIContextProvider } from './utils/UIContext';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import './styles/global.scss';
@@ -14,7 +14,6 @@ import './styles/global.scss';
 const queryClient = new QueryClient();
 
 export default function App() {
-
   return (
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
@@ -38,6 +37,5 @@ export default function App() {
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </BrowserRouter>
-
   );
 }

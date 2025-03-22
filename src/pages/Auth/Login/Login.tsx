@@ -1,12 +1,12 @@
 import { Logo } from '@/components/Logo/Logo.tsx';
-import { backgroundImages, backgroundSvgs } from './background.data.ts';
-import { LoginBackground } from './LoginBackground.tsx';
+import { backgroundImages, backgroundSvgs } from '../../../constants/background.data.ts';
+import { AuthBackground } from '@/pages/Auth/AuthBackground.tsx';
 import { LoginForm } from './LoginForm.tsx';
 
 export const Login = () => {
   return (
     <div className="login">
-      <LoginBackground
+      <AuthBackground
         backgroundImages={backgroundImages}
         backgroundSvgs={backgroundSvgs}
       />

@@ -1,5 +1,4 @@
-import { BackgroundImage } from './background.types';
-import { BackgroundSvg } from './background.types';
+import { IAuthBackground, IAuthSvg } from '@/types/auth.types';
 
 import {
   CalculatorSvg,
@@ -15,12 +14,12 @@ import {
   Background2,
 } from '@/assets/Login';
 
-export const backgroundImages: BackgroundImage[] = [
+export const backgroundImages: IAuthBackground[] = [
   { id: 0, src: Background1, isActive: false },
   { id: 1, src: Background2, isActive: false },
 ];
 
-export const backgroundSvgs: BackgroundSvg[] = [
+export const backgroundSvgs: IAuthSvg[] = [
   { id: 0, src: CalculatorSvg, className: 'calculator' },
   { id: 1, src: CalendarSvg, className: 'calendar' },
   { id: 2, src: CheckSvg, className: 'check' },

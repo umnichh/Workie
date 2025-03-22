@@ -1,12 +1,7 @@
 import { useEffect, useState } from 'react';
-import { BackgroundImage, BackgroundSvg } from './background.types.ts';
+import { AuthProps } from '@/types/auth.types';
 
-interface LoginBackgroundProps {
-  backgroundImages: BackgroundImage[];
-  backgroundSvgs: BackgroundSvg[];
-}
-
-export const LoginBackground = ({ backgroundImages, backgroundSvgs, }: LoginBackgroundProps) => {
+export const AuthBackground = ({ backgroundImages, backgroundSvgs, }: AuthProps) => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [, setButtonsImage] = useState(1);
   const [backgrounds, setBackgrounds] = useState(backgroundImages);

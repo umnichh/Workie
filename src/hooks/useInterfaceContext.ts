@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { createContext } from 'react';
-import { UIContextInterface } from '@/types/sidebar.types';
+import { InterfaceContext } from '@/types/sidebar.types';
 
-export const UIContext = createContext<UIContextInterface | undefined>(undefined);
+export const UIContext = createContext<InterfaceContext | undefined>(undefined);
 
-export const useUIContext = () => {
+export const useInterfaceContext = () => {
   const context = useContext(UIContext);
   if (context === undefined) {
     throw new Error('Context not found');

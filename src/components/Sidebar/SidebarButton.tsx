@@ -1,10 +1,10 @@
-import { useUIContext } from '@/hooks/useUIContext';
+import { useInterfaceContext } from '@/hooks/useInterfaceContext';
 import { SidebarButtonProps } from '../../types/sidebar.types';
 import { NavLink } from 'react-router-dom';
 
 export const SidebarButton = ({ Svg, text, color, circle, link }: SidebarButtonProps) => {
 
-  const { isSidebarHidden, setModal } = useUIContext();
+  const { isSidebarHidden, setModal } = useInterfaceContext();
   const handleClick = () => {
     setModal('');
   };

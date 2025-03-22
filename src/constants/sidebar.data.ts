@@ -6,57 +6,76 @@ import IdeaSvg from '@/assets/Sidebar/ideas.svg?react';
 import MapSvg from '@/assets/Sidebar/roadmap.svg?react';
 import ProjectSvg from '@/assets/Sidebar/project.svg?react';
 import RoadmapSvg from '@/assets/Sidebar/roadmap.svg?react';
-import { Button, CreateButton } from '../types/sidebar.types';
+import { SidebarButton, CreateOptions } from '../types/sidebar.types';
+import { CreateProject } from '@/components/Sidebar/CreateProject';
 
-export const SidebarButtons: Button[] = [
-  {
-    id: 'sbtn-1',
+export const SidebarMainButtons: SidebarButton[] = [
+{
+    id: 'main-button',
     svg: HomeSvg,
     text: 'Главная',
-    position: 'top',
     link: '/',
   },
   {
-    id: 'sbtn-2',
+    id: 'tasks-button',
     svg: TaskSvg,
     text: 'Задачи',
-    position: 'top',
     link: '/tasks'
   },
   {
-    id: 'sbtn-3',
+    id: 'notifications-button',
     svg: NotificationSvg,
     text: 'Уведомления',
-    position: 'top',
     link: '/notifications'
   },
+]
+
+export const SidebarAnalyticsButtons: SidebarButton[] = [
+  
   {
     id: 'sbtn-4',
     svg: GoalSvg,
     text: 'Цели',
-    position: 'bottom',
     link: '/goals'
   },
   {
     id: 'sbtn-5',
     svg: IdeaSvg,
     text: 'Идеи',
-    position: 'bottom',
     link: '/ideas'
   },
   {
     id: 'sbtn-6',
     svg: MapSvg,
     text: 'Roadmap',
-    position: 'bottom',
     link: '/roadmaps'
   },
-];
+]
 
-export const CreateOptionsButtons: CreateButton[] = [
-  { src: TaskSvg, text: 'Задача', isActive: false },
-  { src: ProjectSvg, text: 'Проект', isActive: false },
-  { src: GoalSvg, text: 'Цель', isActive: false },
-  { src: IdeaSvg, text: 'Идея', isActive: false },
-  { src: RoadmapSvg, text: 'Roadmap', isActive: false },
-];
+export const CreateOptionsButtons: CreateOptions[] = [
+  { 
+    src: TaskSvg, 
+    text: 'Задача',
+    component: CreateProject 
+  },
+  { 
+    src: ProjectSvg, 
+    text: 'Проект', 
+    component: CreateProject 
+  },
+  { 
+    src: GoalSvg, 
+    text: 'Цель',
+    component: CreateProject 
+  },
+  { 
+    src: IdeaSvg, 
+    text: 'Идея', 
+    component: CreateProject 
+  },
+  { 
+    src: RoadmapSvg, 
+    text: 'Roadmap', 
+    component: CreateProject 
+  },
+]

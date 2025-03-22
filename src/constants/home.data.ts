@@ -7,7 +7,7 @@ import HideSvg from '@/assets/Home/hide.svg?react';
 import LinkSvg from '@/assets/Home/link.svg?react';
 import SettingsSvg from '@/assets/Home/settings.svg?react'
 import { ComponentType } from 'react';
-import { ProjectSettings } from './ProjectSettings';
+import { ProjectSettings } from '../pages/Home/ProjectSettings';
 
 interface IHomeButton {
   BeforeIcon?: ComponentType,

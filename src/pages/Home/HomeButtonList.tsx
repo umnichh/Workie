@@ -1,5 +1,5 @@
 import { HomeButton } from './HomeButton.tsx';
-import { homeButtons } from './home.data.ts';
+import { homeButtons } from '../../constants/home.data.ts';
 
 export const HomeButtonList = () => {
   return (

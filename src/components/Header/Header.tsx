@@ -4,10 +4,10 @@ import { Logo } from '@/components/Logo/Logo.tsx';
 import { ThemeSwitcher } from './ThemeSwitcher.tsx';
 import { NavSwitcher } from './NavSwitcher.tsx';
 import { Search } from './Search.tsx';
-import { useUIContext } from '@/hooks/useUIContext.ts';
+import { useInterfaceContext } from '@/hooks/useInterfaceContext.ts';
 
 export const Header = () => {
-  const { isSidebarHidden, setIsSidebarHidden } = useUIContext();
+  const { isSidebarHidden, setIsSidebarHidden } = useInterfaceContext();
   return (
     <header className="header">
       <div className="header__container">

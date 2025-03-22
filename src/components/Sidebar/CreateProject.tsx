@@ -1,10 +1,10 @@
 import { FormEvent, useState } from 'react';
-import { useUIContext } from '@/hooks/useUIContext';
+import { useInterfaceContext } from '@/hooks/useInterfaceContext';
 import { useCreateProject } from '@/hooks/useCreateProject';
 
 export const CreateProject = () => {
   const [projectName, setProjectName] = useState('');
-  const { modal, setModal } = useUIContext();
+  const { modal, setModal } = useInterfaceContext();
   const { mutate } = useCreateProject();
 
   const handleClick = (e: FormEvent) => {

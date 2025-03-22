@@ -1,4 +1,4 @@
-import { useUIContext } from '@/hooks/useUIContext';
+import { useInterfaceContext } from '@/hooks/useInterfaceContext';
 import { ComponentType, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ type ButtonProps = {
 
 export const HomeButton = ({ BeforeIcon, text, AfterIcon, Modal }: ButtonProps) => {
   const { projectId } = useParams();
-  const { setModal, modal } = useUIContext();
+  const { setModal, modal } = useInterfaceContext();
 
   useEffect(() => {
     console.log(modal)
