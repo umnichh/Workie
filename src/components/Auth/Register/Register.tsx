@@ -1,6 +1,6 @@
 import { backgroundImages, backgroundSvgs } from '@/constants/background.data';
 import { Logo } from '@/components/Logo/Logo';
-import { AuthBackground } from '@/pages/Auth/AuthBackground';
+import { AuthBackground } from '@/components/Auth/AuthBackground';
 import { RegisterForm } from './RegisterForm';
 
 export const Register = () => {

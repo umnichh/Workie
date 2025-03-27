@@ -1,0 +1,75 @@
+.project-options{
+  position: absolute;
+  margin-top: 5px;
+  padding: 5px;
+  transition: background-color 0.2s ease-in-out;
+  z-index: 1000;
+  width: 150px;
+  border: 1px solid var(--create-border);
+  border-radius: 5px;
+  background-color: var(--create-div);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+  button{
+    border-style: none;
+    font-size: 0.9rem;
+    padding: 8px 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.1s ease;
+    border-radius: 8px;
+    background-color: transparent;
+    text-align: start;
+    &:hover {
+      background-color: var(--border-bg);
+    }
+  }
+
+  &__delete{
+    color: rgb(189, 87, 87);
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  &__text{
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  &--show{
+    animation: fadeIn 0.1s forwards;
+  }
+
+  &--hide{
+    animation: fadeOut 0.1s forwards;
+  }
+}
+
+@keyframes fadeIn{
+  from{
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fadeOut{
+  from{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  to{
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+

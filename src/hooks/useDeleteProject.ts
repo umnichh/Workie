@@ -6,9 +6,9 @@ export const useDeleteProject = () => {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
-  return useMutation({
+  const {mutate, isPending} = useMutation({
     mutationKey: ['delete project'],
-    mutationFn: (projectId : number) => projects.deleteProject(projectId),
+    mutationFn: (projectId : string) => projects.deleteProject(projectId),
     onError: (error) => {
       console.error(`Delete project failed ${error}`)
     },
@@ -16,7 +16,7 @@ export const useDeleteProject = () => {
       console.log(`Project deleted succesfully`)
       navigate('/')
       return queryClient.invalidateQueries({queryKey: ['projects']});
-
     }
   })
+  return {mutate, isPending}
 }

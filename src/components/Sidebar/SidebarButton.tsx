@@ -4,25 +4,19 @@ import { NavLink } from 'react-router-dom';
 
 export const SidebarButton = ({ Svg, text, color, circle, link }: SidebarButtonProps) => {
 
-  const { isSidebarHidden, setModal } = useInterfaceContext();
-  const handleClick = () => {
-    setModal('');
-  };
+  const { isSidebarHidden } = useInterfaceContext();
   return (
     <NavLink
       to={link}
       className={({ isActive }) =>
         `sidebar__button ${isActive ? 'sidebar__button--active' : ''}`
       }
-      onClick={handleClick}
     >
       {circle && (
         <div
+          className='sidebar__project-color'
           style={{
-            width: '10px',
-            height: '10px',
             backgroundColor: `${color}`,
-            borderRadius: '100%',
           }}
         ></div>
       )}

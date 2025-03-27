@@ -8,6 +8,7 @@ import ProjectSvg from '@/assets/Sidebar/project.svg?react';
 import RoadmapSvg from '@/assets/Sidebar/roadmap.svg?react';
 import { SidebarButton, CreateOptions } from '../types/sidebar.types';
 import { CreateProject } from '@/components/Sidebar/CreateProject';
+import { ComponentType } from 'react';
 
 export const SidebarMainButtons: SidebarButton[] = [
 {
@@ -25,8 +26,8 @@ export const SidebarMainButtons: SidebarButton[] = [
   {
     id: 'notifications-button',
     svg: NotificationSvg,
-    text: 'Уведомления',
-    link: '/notifications'
+    text: 'Workflow',
+    link: '/changes'
   },
 ]
 
@@ -56,26 +57,39 @@ export const CreateOptionsButtons: CreateOptions[] = [
   { 
     src: TaskSvg, 
     text: 'Задача',
-    component: CreateProject 
+    component: 'task',
+    active: false
   },
   { 
     src: ProjectSvg, 
     text: 'Проект', 
-    component: CreateProject 
+    component: 'project',
+    active: false 
   },
   { 
     src: GoalSvg, 
     text: 'Цель',
-    component: CreateProject 
+    component: 'goal',
+    active: false
   },
   { 
     src: IdeaSvg, 
     text: 'Идея', 
-    component: CreateProject 
+    component: 'idea',
+    active: false
   },
   { 
     src: RoadmapSvg, 
     text: 'Roadmap', 
-    component: CreateProject 
+    component: 'roadmap',
+    active: false
   },
 ]
+
+export const CREATE_COMPONENTS: Record<string, ComponentType> = {
+  // task: CreateTask,
+  project: CreateProject,
+  // goal: CreateProject,
+  // idea: CreateIdea,
+  // roadmap: CreateRoadmap,
+} as const;

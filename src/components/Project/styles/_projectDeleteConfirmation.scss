@@ -1,0 +1,104 @@
+
+.confirmation {
+  position: absolute;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--search-border);
+  background-color: var(--header-bg);
+  border-radius: 10px;
+  color: white;
+  top: 30%;
+  left: 40%;
+
+  &--show{
+    animation: fadeIn 0.2s forwards;
+  }
+
+  &--hide{
+    animation: fadeOut 0.2s forwards;
+  }
+
+  &__title {
+    padding-top: 20px;
+    font-size: 1.2rem;
+  }
+
+  &__buttons {
+    padding: 20px 0px 30px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; 
+  }
+
+  &__text{
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 15px;
+    padding: 0 10px;
+    color: var(--delete-button);
+    &--show{
+      animation: fadeIn 0.2s ease-in-out;
+    }
+  }
+
+  &__confirm {
+    color: var(--delete-button);
+    font-size: 1.2rem;
+    width: 40%;
+    border: 1px solid var(--search-border);
+    padding: 5px 30px;
+    border-radius: 10px;
+    transition: all 0.15s ease-in-out;
+
+    &:disabled{
+      color: rgb(117, 117, 117);
+
+      &:hover{
+        border: 1px solid var(--search-border);
+      }
+    }
+
+    &:hover{
+      border: 1px solid var(--delete-button);;
+    }
+  }
+
+  &__deny {
+    color: white;
+    font-size: 1.2rem;
+    width: 40%;
+    border: 1px solid var(--search-border);
+    padding: 5px 30px;
+    border-radius: 10px;
+    transition: all 0.15s ease-in-out;
+
+     &:hover{
+      border: 1px solid rgb(196, 196, 196);;
+    }
+  }
+
+  &__loader{
+  margin-top: 20px;
+  height: 5px;
+  background-color: white;
+  border-radius: 10px;
+  width: 80%;
+
+  &--hide{
+    animation: loaderOut 2s forwards;
+  }
+}
+}
+
+@keyframes loaderOut {
+  from{
+    width: 80%;
+  }
+  to{
+    width: 0;
+  }
+}
+

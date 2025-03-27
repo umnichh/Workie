@@ -1,14 +1,26 @@
-@use '../../styles/variables' as *;
-@use '../Home/settings' as *;
+@use '../../../styles/variables' as *;
+@use './projectSettings' as *;
+@use './projectOptions' as *;
+@use './projectInfo' as *;
+@use './projectDeleteConfirmation' as *;
 
-.main {
+.project{
   background-color: var(--main-bg);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: all 0.2s ease-in-out;
-
-  &--white {
-    background-color: var(--main-bg);
+  transform: translateX(-100%);
+  z-index: 0;
+  &--show{
+    transform: translateX(0);
+    opacity: 1;
   }
+
+  &--hide{
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+
 
   &__button-container {
     display: flex;
@@ -18,6 +30,7 @@
   }
 
   &__button {
+    background-color: var(--header-bg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,9 +71,6 @@
 
     &--create {
       border-color: var(--green);
-    }
-
-    &--link {
     }
   }
 }

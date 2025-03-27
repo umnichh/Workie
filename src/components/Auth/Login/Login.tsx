@@ -1,6 +1,6 @@
 import { Logo } from '@/components/Logo/Logo.tsx';
 import { backgroundImages, backgroundSvgs } from '../../../constants/background.data.ts';
-import { AuthBackground } from '@/pages/Auth/AuthBackground.tsx';
+import { AuthBackground } from '@/components/Auth/AuthBackground.tsx';
 import { LoginForm } from './LoginForm.tsx';
 
 export const Login = () => {

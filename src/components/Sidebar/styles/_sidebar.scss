@@ -1,6 +1,7 @@
-@use '../../styles/variables' as *;
-@use '../../components/Sidebar/create';
-@use '../../components/Sidebar/project';
+@use '../../../styles/variables' as *;
+@use './create';
+@use './new-project';
+
 .sidebar {
   display: flex;
   position: relative;
@@ -10,7 +11,6 @@
   background-color: var(--header-bg);
   padding: 20px 10px 20px 10px;
   border-right: 1px solid var(--border-bg);
-  height: 100%;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition:
     all 0.1s ease-in-out,
@@ -24,12 +24,13 @@
   }
 
   &--hidden {
-    width: 40px;
+    width: 55px;
   }
 
   &__label {
     text-align: left;
     overflow: hidden;
+    text-overflow: ellipsis;
     &--hidden {
       display: none;
     }
@@ -55,9 +56,10 @@
   }
 
   &__button {
+    white-space: nowrap;
 
     text-decoration: none;
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: center;
     color: var(--text);
@@ -67,8 +69,9 @@
     justify-content: start;
     border-radius: 10px;
     padding: 5px 10px 5px 10px;
-    transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.1s ease-in-out;
     text-align: left;
+    word-wrap: break-word;
     &:hover {
       background-color: var(--border-bg);
     }
@@ -87,9 +90,13 @@
     }
 
     &--expand {
-      transition: transform 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
       margin-bottom: 10px;
       font-weight: 600;
+
+      &:hover {
+        background-color: var(--clicked-button);
+      }
     }
   }
 
@@ -110,14 +117,14 @@
 
   &__analytics-container {
     gap: 5px;
-    border-bottom: 1px solid var(--border-bg);
     transition:
       all 0.2s ease-in-out,
       border 0.2s ease-in-out;
-    padding-bottom: 15px;
     overflow: hidden;
     opacity: 1;
     max-height: 100px;
+    // border-bottom: 1px solid var(--border-bg);
+
 
     &--hidden {
       padding: 0;
@@ -126,12 +133,21 @@
     }
   }
 
+  &__project-color{
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    flex-shrink: 0;
+  }
+
   &__projects-container {
     gap: 5px;
     transition: all 0.2s ease-in-out;
     padding-bottom: 15px;
     opacity: 1;
-    max-height: 300px;
+    width: 100%;
+    height: 20px;
+    
 
     &--hidden {
       padding: 0;

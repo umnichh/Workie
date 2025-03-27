@@ -2,18 +2,18 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { projects } from "@/utils/projects.service";
 
-export const useProjects = () => {
+export const useProjectById = (projectId : string) => {
   const {data, error, isSuccess, isError, isPending} = useQuery({
-    queryKey: ['projects'],
-    queryFn: () => projects.getProjects()
+    queryKey: ['project'],
+    queryFn: () => projects.getProject(projectId)
   })
   
   useEffect(() => {
-    if (isSuccess) console.log('Get projects success', data);
+    if (isSuccess) console.log('Get project by ID success', data);
   }, [isSuccess, data])
 
     useEffect(() => {
-    if (isError) console.error(`Get projects failed ${error}`);
+    if (isError) console.error(`Get project by ID failed ${error}`);
   }, [isError, error])
 
   return {data, error, isSuccess, isError, isPending}

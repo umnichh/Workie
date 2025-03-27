@@ -9,7 +9,8 @@ export const useLogin = () => {
   const { mutate, isPending } = useMutation({
     mutationKey: ['login'],
     mutationFn: async (data: LoginCredentials) => projects.login(data),
-    onSuccess() {
+    onSuccess(data) {
+      console.log('info:',data)
       navigate('/')
     },
     onError(error) {

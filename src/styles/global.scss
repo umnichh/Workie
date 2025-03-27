@@ -1,10 +1,14 @@
 @use '../styles/variables' as *;
 @use '../styles/mixins' as *;
-@use '../components/Header/header';
-@use '../components/Sidebar/sidebar';
-@use '../pages/Home/home';
-@use '../pages/Auth/Login/login';
+@use '../components/Header/styles/header';
+@use '../components/Sidebar/styles/sidebar';
+@use '../components/Project/styles/project';
+@use '../components/Auth/Login/login';
+@use './portal' as *;
 
+*{
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   background-color: var(--body-bg);

@@ -1,12 +1,11 @@
 import { useMutation } from "@tanstack/react-query";
 import { projects } from "@/utils/projects.service";
-import { useNavigate } from "react-router-dom";
+import { ProjectForm } from "@/components/Sidebar/CreateProject";
 
 export const useCreateProject = () => {
-  const navigate = useNavigate();
-  return useMutation({
+  const {mutate, isPending} = useMutation({
     mutationKey: ['add project'],
-    mutationFn: (newProject : {name : string}) => projects.createProject(newProject),
+    mutationFn: (newProject : ProjectForm) => projects.createProject(newProject),
     onError: (error) => {
       console.error(`Create project failed ${error}`)
     },
@@ -14,4 +13,5 @@ export const useCreateProject = () => {
       console.log(`Project created succesfully`)
     }
   })
+  return {mutate, isPending}
 }

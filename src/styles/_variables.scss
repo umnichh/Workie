@@ -1,45 +1,45 @@
 body[data-theme='dark'] {
-  --body-bg: rgb(47, 50, 67);
-  --header-bg: rgb(55, 59, 78);
+  --body-bg: rgb(30, 32, 42);
+  --header-bg: rgb(40, 42, 54);
   --header-btn: rgb(170, 178, 197);
-  --border-bg: rgb(65, 69, 89);
-  --search-bg: rgb(65, 69, 89);
-  --search-border: rgb(182, 182, 182);
-  --search-input: rgb(176, 176, 176);
-  --main-bg: rgb(47, 50, 67);
+  --border-bg: rgba(255, 255, 255, 0.1);
+  --search-bg: rgba(255, 255, 255, 0.1);
+  --search-border: rgba(255, 255, 255, 0.2);
+  --search-input: rgb(200, 200, 200);
+  --main-bg: rgb(30, 32, 42);
   --toggle-text: rgb(170, 178, 197);
-  --text: rgb(170, 178, 197);
+  --text: rgb(220, 220, 220);
   --toggle-bg: rgb(170, 178, 197);
   --logo-bg: rgb(255, 255, 255);
   --green: rgb(104, 182, 155);
-  --green-hover: rgb(56, 77, 71);
+  --green-hover: rgba(104, 182, 155, 0.8);
   --switcher-bg: rgb(82, 94, 201);
-  --create-div: rgb(47, 50, 67);
-  --create-border: rgb(97, 103, 116);
-  --clicked-button: rgb(70, 73, 102);
+  --create-div: rgba(40, 42, 54, 0.9);
+  --create-border: rgba(255, 255, 255, 0.1);
+  --clicked-button: rgba(255, 255, 255, 0.1);
   --button-border: rgb(85, 92, 125);
   --delete-button: rgb(196, 63, 63);
 }
 
 body[data-theme='light'] {
-  --body-bg: rgb(255, 255, 255);
+  --body-bg: rgb(250, 250, 250);
   --header-bg: rgb(255, 255, 255);
   --header-btn: rgb(122, 122, 122);
-  --border-bg: rgb(241, 241, 241);
-  --search-bg: rgb(236, 236, 236);
-  --search-border: rgb(182, 182, 182);
-  --search-input: rgb(119, 119, 119);
-  --main-bg: rgb(255, 255, 255);
+  --border-bg: rgba(0, 0, 0, 0.05);
+  --search-bg: rgba(0, 0, 0, 0.05);
+  --search-border: rgba(0, 0, 0, 0.1);
+  --search-input: rgb(80, 80, 80);
+  --main-bg: rgb(250, 250, 250);
   --toggle-text: rgb(147, 147, 147);
-  --text: rgb(52, 52, 52);
+  --text: rgb(60, 60, 60);
   --toggle-bg: rgb(239, 239, 239);
   --logo-bg: rgb(0, 0, 0);
   --green: rgb(104, 182, 155);
-  --green-hover: rgb(205, 253, 191);
+  --green-hover: rgba(104, 182, 155, 0.8);
   --switcher-bg: rgb(250, 239, 129);
-  --create-div: rgb(248, 248, 248);
-  --create-border: rgb(177, 177, 177);
-  --clicked-button: rgb(215, 215, 215);
+  --create-div: rgba(255, 255, 255, 0.9);
+  --create-border: rgba(0, 0, 0, 0.1);
+  --clicked-button: rgba(0, 0, 0, 0.05);
   --button-border: rgb(85, 92, 125);
   --delete-button: rgb(177, 51, 51);
 }

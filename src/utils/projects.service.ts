@@ -1,3 +1,4 @@
+import { ProjectForm } from "@/components/Sidebar/CreateProject";
 import { LoginCredentials, RegisterCredentials } from "@/types/auth.types";
 import { Project } from "@/types/sidebar.types";
 
@@ -30,7 +31,17 @@ class ProjectsService {
     return response.json();
   }
 
-  async createProject(newProject : {name : string}) {
+    async getProject(id : string) : Promise<Project> {
+    const response = await fetch(`${this.URL}/project/${id}`, {
+        method: 'GET',
+        credentials: 'include'
+    })
+    return response.json();
+  }
+
+
+
+  async createProject(newProject : ProjectForm) {
     await fetch(`${this.URL}/project`, {
         method: 'POST',
         body: JSON.stringify(newProject),
@@ -38,7 +49,7 @@ class ProjectsService {
     });
   }
 
-  async deleteProject(projectId : number) {
+  async deleteProject(projectId : string) {
     await fetch(`${this.URL}/project/${projectId}`, {
         method: 'DELETE',
         credentials: 'include',

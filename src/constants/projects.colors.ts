@@ -9,8 +9,4 @@ export const projectsColors = [
   { id: 7, color: 'rgb(136, 57, 239)' },
   { id: 8, color: 'rgb(221, 120, 120)' },
   { id: 9, color: 'rgb(30, 102, 245)' },
-  { id: 10, color: 'rgb(234, 118, 203)' },
-  { id: 11, color: 'rgb(114, 135, 253)' },
-  { id: 12, color: 'rgb(254, 100, 11)' },
-  { id: 13, color: 'rgb(23, 146, 153)' },
 ];

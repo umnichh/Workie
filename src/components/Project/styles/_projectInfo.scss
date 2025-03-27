@@ -1,0 +1,58 @@
+.project-info {
+  position: fixed;
+  top: 30%;
+  left: 40%;
+  width: 90%;
+  max-width: 400px;
+  background-color: var(--header-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border-bg);
+  z-index: 1000;
+  padding: 24px;
+  color: var(--text);
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+
+  &--show{
+    opacity: 1;
+    transform: translateY(30px);
+  }
+
+  &--hide{
+    opacity: 0;
+    transform: translateY(0px);
+  }
+
+  &__name {
+    margin: 0 0 16px 0;
+    font-size: 1.5rem;
+    color: var(--text);
+    border-bottom: 1px solid var(--border-bg);
+    padding-bottom: 12px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__value {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
+
+  &__label {
+    font-weight: 600;
+    color: var(--green);
+    font-size: 0.9rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}

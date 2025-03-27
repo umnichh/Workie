@@ -1,19 +1,25 @@
-import React, { Component, ComponentType, SVGProps } from 'react';
+import React, { Ref, SVGProps } from 'react';
 
 export interface InterfaceContext {
   isSidebarHidden: boolean;
   setIsSidebarHidden: React.Dispatch<React.SetStateAction<boolean>>;
-  modal: string;
-  setModal: React.Dispatch<React.SetStateAction<string>>;
-  projects: Project[] | null;
-  setProjects: React.Dispatch<React.SetStateAction<Project[] | null>>;
-  handleModal: Function;
+}
+
+export interface User{
+  email: string,
+  id: string,
+  timeRegistration: string,
+  username: string,
 }
 
 export interface Project {
-  id: number,
+  id: string,
   name: string
   createdAt: string
+  color: string
+  description: string,
+  privacy: string,
+  user: User
 }
 
 export interface SidebarButton {
@@ -25,7 +31,7 @@ export interface SidebarButton {
 
 export interface SidebarButtonProps {
   Svg?: React.FC<SVGProps<SVGSVGElement>>;
-  id?: number;
+  id?: string;
   text: string;
   color?: string;
   circle?: boolean;
@@ -42,5 +48,11 @@ export interface CreateOptionsProps {
 export interface CreateOptions {
   src: React.FC<React.SVGProps<SVGSVGElement>>;
   text: string;
-  component: ComponentType
+  component: string
+  active: boolean
+}
+
+export interface ActiveOption {
+  activeOption: undefined | string
+  setActiveOption: React.Dispatch<React.SetStateAction<undefined | string>>;
 }
