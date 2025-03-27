@@ -5,18 +5,18 @@
   width: 50px;
   height: 26px;
   border-radius: 15px;
-  border: 2px solid var(--header-btn);
+  border: 2px solid var(--color-text-secondary);
   transition: background-color 0.2s ease-in-out;
 
   &:hover {
-    background-color: var(--switcher-bg);
+    background-color: var(--color-accent-secondary);
   }
 
   &--white {
-    background-color: var(--toggle-bg);
+    background-color: var(--color-state-hover);
 
     &:hover {
-      background-color: var(--switcher-bg);
+      background-color: var(--color-accent-secondary);
     }
   }
 
@@ -27,12 +27,12 @@
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background-color: var(--toggle-text);
+    background-color: var(--color-text-secondary);
 
     &--white {
       left: auto;
       right: 2px;
-      background-color: var(--toggle-text);
+      background-color: var(--color-text-secondary);
     }
 
     &--moon {
@@ -43,7 +43,7 @@
       height: 18px;
 
       & path {
-        fill: var(--text);
+        fill: var(--color-text-primary);
       }
     }
 

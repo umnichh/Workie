@@ -5,9 +5,9 @@
   transition: background-color 0.2s ease-in-out;
   z-index: 1000;
   width: 150px;
-  border: 1px solid var(--create-border);
+  border: 1px solid var(--color-border-primary);
   border-radius: 5px;
-  background-color: var(--create-div);
+  background-color: var(--color-interface-modal);
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -25,18 +25,18 @@
     background-color: transparent;
     text-align: start;
     &:hover {
-      background-color: var(--border-bg);
+      background-color: var(--color-state-hover);
     }
   }
 
   &__delete{
-    color: rgb(189, 87, 87);
+    color: var(--color-action-danger-hover);
     font-size: 1rem;
     cursor: pointer;
   }
 
   &__text{
-    color: white;
+    color: var(--color-text-primary);
     font-size: 1rem;
     cursor: pointer;
   }

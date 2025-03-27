@@ -1,7 +1,100 @@
 .create {
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-accent-primary);
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &:hover {
+    background: linear-gradient(145deg, var(--color-accent-primary), var(--color-accent-primary-hover));
+  }
+
+  &:active {
+    background: linear-gradient(145deg, var(--color-accent-primary-hover), var(--color-accent-primary));
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--color-text-primary);
+  }
+
+  &__modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  &__content {
+    background-color: var(--color-interface-modal);
+    border-radius: 8px;
+    padding: 24px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+  }
+
+  &__title {
+    margin: 0 0 16px 0;
+    font-size: 1.5rem;
+    color: var(--color-text-primary);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__label {
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    text-align: left;
+    overflow: hidden;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+
+    &--hidden {
+      opacity: 0;
+      width: 0;
+    }
+  }
+
+  &__input {
+    background-color: var(--color-interface-search);
+    border: 1px solid var(--color-border-secondary);
+    border-radius: 5px;
+    padding: 8px;
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    outline: none;
+
+    &:focus {
+      border-color: var(--color-accent-primary);
+    }
+  }
+
   &__button {
-    color: var(--text);
-    border: 1px solid var(--green);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-accent-primary);
     padding: 10px 15px;
     border-radius: 12px;
     font-size: 1rem;
@@ -11,17 +104,17 @@
     align-items: center;
     gap: 18px;
     transition: all 0.3s ease-in-out;
-    background: linear-gradient(145deg, var(--green), var(--green-hover));
+    background: linear-gradient(145deg, var(--color-accent-primary), var(--color-accent-primary-hover));
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
     cursor: pointer;
 
     &--hidden{
-       justify-content: center;
+      justify-content: center;
     }
 
     &:hover {
-      background: linear-gradient(145deg, var(--green-hover), var(--green));
+      background: linear-gradient(145deg, var(--color-accent-primary-hover), var(--color-accent-primary));
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
 
@@ -29,8 +122,27 @@
       width: 18px;
       height: 18px;
       flex-shrink: 0;
-      fill: var(--text);
+      fill: var(--color-text-primary);
     }
+  }
+
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: var(--color-text-primary);
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      color: var(--color-action-danger);
+    }
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    fill: var(--color-text-primary);
   }
 
   &__component {
@@ -43,20 +155,7 @@
     }
   }
 
-  &__label {
-    text-align: left;
-    overflow: hidden;
-    font-weight: 500;
-    transition: opacity 0.3s ease;
-
-    &--hidden {
-      opacity: 0;
-      width: 0;
-    }
-  }
-
   &__options {
-
     &--show {
       animation: fadeIn 0.3s ease forwards;
     }
@@ -65,14 +164,13 @@
       animation: fadeOut 0.2s ease forwards;
     }
     width: 100%;
-    border: 1px solid var(--border-bg);
+    border: 1px solid var(--color-border-primary);
     border-radius: 10px;
     padding: 10px 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 
     &-button {
       cursor: pointer;
@@ -81,7 +179,7 @@
       padding: 12px 15px 12px 12px;
       width: 90%;
       margin-left: 5px;
-      color: var(--text);
+      color: var(--color-text-primary);
       display: flex;
       align-items: center;
       gap: 8px;
@@ -90,26 +188,26 @@
       background-color: transparent;
 
       &:hover {
-        background-color: var(--border-bg);
+        background-color: var(--color-border-primary);
         transform: translateX(5px);
       }
 
       &--active {
-        background-color: var(--clicked-button);
+        background-color: var(--color-state-hover);
 
         &:hover {
-          background-color: var(--clicked-button);
+          background-color: var(--color-state-hover);
         }
       }
 
       svg {
         width: 16px;
         height: 16px;
-        fill: var(--text);
+        fill: var(--color-text-primary);
       }
     }
 
-     &--hidden{
+    &--hidden{
       button{
         display: flex;
         justify-content: center;
@@ -124,12 +222,11 @@
       svg {
         flex-shrink: 0;
         height: 50px;
-        fill: var(--text);
+        fill: var(--color-text-primary);
       }
     }
   }
 }
-
 
 @keyframes fadeInComponent {
   from {
@@ -147,12 +244,12 @@
 @keyframes fadeOutComponent {
   from {
     opacity: 1;
-    transform: translateX(200px); /* Исходное положение */
+    transform: translateX(200px);
     position: absolute;
   }
   to {
     opacity: 0;
-    transform: translateX(0); /* Сдвигаем в правую сторону */
+    transform: translateX(0);
     position: absolute;
   }
 }

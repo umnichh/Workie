@@ -2,10 +2,10 @@
   padding: 20px;
   z-index: 1000;
   border-radius: 12px;
-  background-color: var(--create-div);
+  background-color: var(--color-interface-modal);
   display: flex;
   flex-direction: column;
-  color: var(--text);
+  color: var(--color-text-primary);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(10px);
 
@@ -25,29 +25,29 @@
 
   &__name{
     font-size: 1rem;
-    background-color: var(--search-bg);
+    background-color: var(--color-interface-search);
     padding: 10px;
-    border: 1px solid var(--search-border);
+    border: 1px solid var(--color-border-secondary);
     width: 100%;
     border-radius: 8px;
-    color: var(--text);
+    color: var(--color-text-primary);
     transition: all 0.3s ease;
 
 
     &--empty{
-       border-color: rgb(204, 92, 92);
+      border-color: var(--color-action-danger);
     }
 
     &:focus {
       outline: none;
-      border-color: var(--green);
+      border-color: var(--color-accent-primary);
     }
   }
 
   &__error-name{
     margin-top: 10px;
     padding: 10px;
-    background-color:rgb(204, 92, 92); 
+    background-color: var(--color-action-danger);
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -67,15 +67,15 @@
     margin-top: 10px;
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--text);
+    color: var(--color-text-primary);
   }
 
   &__description {
     font-size: 1rem;
-    background-color: var(--search-bg);
-    border: 1px solid var(--search-border);
+    background-color: var(--color-interface-search);
+    border: 1px solid var(--color-border-secondary);
     border-radius: 8px;
-    color: var(--text);
+    color: var(--color-text-primary);
     width: 100%;
     transition: all 0.3s ease;
     resize: none;
@@ -85,7 +85,7 @@
 
     &:focus {
       outline: none;
-      border-color: var(--green);
+      border-color: var(--color-accent-primary);
     }
   }
 
@@ -116,9 +116,9 @@
       flex-direction: row;
       gap: 10px;
       padding: 10px;
-      background-color: var(--search-bg);
+      background-color: var(--color-interface-search);
       border-radius: 8px;
-      border: 1px solid var(--search-border);
+      border: 1px solid var(--color-border-secondary);
     }
 
     select {
@@ -126,11 +126,11 @@
       margin-top: 5px;
       height: 60px;
       font-size: 1rem;
-      background-color: var(--search-bg);
-      border: 1px solid var(--search-border);
+      background-color: var(--color-interface-search);
+      border: 1px solid var(--color-border-secondary);
       border-radius: 8px;
       padding-left: 10px;
-      color: var(--text);
+      color: var(--color-text-primary);
       transition: all 0.3s ease;
 
       option{
@@ -139,7 +139,7 @@
 
       &:focus {
         outline: none;
-        border-color: var(--green);
+        border-color: var(--color-accent-primary);
       }
     }
   }
@@ -149,24 +149,24 @@
     font-size: 1rem;
     width: 100%;
     padding: 12px 0;
-    color: var(--text);
+    color: var(--color-text-primary);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
     border-radius: 8px;
     transition: all 0.3s ease;
-    background-color: var(--clicked-button);
+    background-color: var(--color-state-hover);
 
     &:hover {
-      background-color: var(--green);
+      background-color: var(--color-accent-primary);
       transform: translateY(-2px);
     }
 
     svg {
       width: 16px;
       height: 16px;
-      fill: var(--text);
+      fill: var(--color-text-primary);
     }
   }
 }

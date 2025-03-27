@@ -11,7 +11,7 @@
 }
 body {
   margin: 0;
-  background-color: var(--body-bg);
+  background-color: var(--color-background-primary);
   font:
     20px Inter,
     Arial,
@@ -21,7 +21,7 @@ body {
 }
 
 .body--white {
-  background-color: var(--border-bg);
+  background-color: var(--color-border-primary);
 }
 
 #root {

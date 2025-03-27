@@ -6,11 +6,11 @@
     height: 20px;
 
     path {
-      fill: var(--text);
+      fill: var(--color-text-primary);
     }
 
     &:hover {
-      fill: var(--text);
+      fill: var(--color-text-primary);
     }
   }
   &__icon {

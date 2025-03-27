@@ -1,45 +1,116 @@
-body[data-theme='dark'] {
-  --body-bg: rgb(30, 32, 42);
-  --header-bg: rgb(40, 42, 54);
-  --header-btn: rgb(170, 178, 197);
-  --border-bg: rgba(255, 255, 255, 0.1);
-  --search-bg: rgba(255, 255, 255, 0.1);
-  --search-border: rgba(255, 255, 255, 0.2);
-  --search-input: rgb(200, 200, 200);
-  --main-bg: rgb(30, 32, 42);
-  --toggle-text: rgb(170, 178, 197);
-  --text: rgb(220, 220, 220);
-  --toggle-bg: rgb(170, 178, 197);
-  --logo-bg: rgb(255, 255, 255);
-  --green: rgb(104, 182, 155);
-  --green-hover: rgba(104, 182, 155, 0.8);
-  --switcher-bg: rgb(82, 94, 201);
-  --create-div: rgba(40, 42, 54, 0.9);
-  --create-border: rgba(255, 255, 255, 0.1);
-  --clicked-button: rgba(255, 255, 255, 0.1);
-  --button-border: rgb(85, 92, 125);
-  --delete-button: rgb(196, 63, 63);
+:root {
+  // Основные цвета бренда
+  --color-brand-primary: rgb(104, 182, 155);     // Мятный
+  --color-brand-secondary: rgb(82, 94, 201);     // Индиго
+  
+  // Семантические цвета
+  --color-success: rgb(104, 182, 155);
+  --color-warning: rgb(250, 239, 129);
+  --color-danger: rgb(196, 63, 63);
+  --color-info: rgb(82, 94, 201);
+
+  // Нейтральные цвета для светлой темы
+  --color-neutral-50: rgb(250, 250, 250);
+  --color-neutral-100: rgb(245, 245, 245);
+  --color-neutral-200: rgb(230, 230, 230);
+  --color-neutral-300: rgb(200, 200, 200);
+  --color-neutral-400: rgb(170, 170, 170);
+  --color-neutral-500: rgb(140, 140, 140);
+  --color-neutral-600: rgb(110, 110, 110);
+  --color-neutral-700: rgb(80, 80, 80);
+  --color-neutral-800: rgb(50, 50, 50);
+  --color-neutral-900: rgb(30, 30, 30);
+
+  // Размеры иконок
+  --icon-size-xs: 16px;
+  --icon-size-sm: 20px;
+  --icon-size-md: 24px;
+  --icon-size-lg: 32px;
+  --icon-size-xl: 40px;
 }
 
-body[data-theme='light'] {
-  --body-bg: rgb(250, 250, 250);
-  --header-bg: rgb(255, 255, 255);
-  --header-btn: rgb(122, 122, 122);
-  --border-bg: rgba(0, 0, 0, 0.05);
-  --search-bg: rgba(0, 0, 0, 0.05);
-  --search-border: rgba(0, 0, 0, 0.1);
-  --search-input: rgb(80, 80, 80);
-  --main-bg: rgb(250, 250, 250);
-  --toggle-text: rgb(147, 147, 147);
-  --text: rgb(60, 60, 60);
-  --toggle-bg: rgb(239, 239, 239);
-  --logo-bg: rgb(0, 0, 0);
-  --green: rgb(104, 182, 155);
-  --green-hover: rgba(104, 182, 155, 0.8);
-  --switcher-bg: rgb(250, 239, 129);
-  --create-div: rgba(255, 255, 255, 0.9);
-  --create-border: rgba(0, 0, 0, 0.1);
-  --clicked-button: rgba(0, 0, 0, 0.05);
-  --button-border: rgb(85, 92, 125);
-  --delete-button: rgb(177, 51, 51);
+// Светлая тема (по умолчанию)
+:root {
+  // Интерфейс
+  --color-interface-modal: rgba(255, 255, 255, 0.95);
+  --color-interface-search: rgba(0, 0, 0, 0.05);
+  --color-interface-sidebar: var(--color-neutral-100);
+  --color-interface-logo: rgb(0, 0, 0);
+  
+  // Текст
+  --color-text-primary: rgb(60, 60, 60);
+  --color-text-secondary: rgb(122, 122, 122);
+  --color-text-tertiary: rgb(80, 80, 80);
+  
+  // Границы
+  --color-border-primary: rgba(0, 0, 0, 0.05);
+  --color-border-secondary: rgba(0, 0, 0, 0.1);
+  --color-border-tertiary: rgb(85, 92, 125);
+  
+  // Акценты
+  --color-accent-primary: var(--color-brand-primary);
+  --color-accent-primary-hover: rgba(104, 182, 155, 0.8);
+  --color-accent-secondary: var(--color-brand-secondary);
+  
+  // Состояния
+  --color-state-hover: rgba(0, 0, 0, 0.05);
+  --color-state-active: rgba(0, 0, 0, 0.05);
+  --color-state-disabled: rgb(117, 117, 117);
+  
+  // Действия
+  --color-action-primary: var(--color-brand-primary);
+  --color-action-secondary: var(--color-brand-secondary);
+  --color-action-danger: rgb(177, 51, 51);
+  --color-action-danger-hover: rgb(189, 87, 87);
+  
+  // Фон
+  --color-background-primary: rgb(250, 250, 250);
+  --color-background-secondary: rgb(255, 255, 255);
+  
+  // Тени
+  --color-shadow-primary: rgba(0, 0, 0, 0.24);
+  --color-shadow-secondary: rgba(0, 0, 0, 0.1);
+}
+
+// Темная тема
+[data-theme="dark"] {
+  // Интерфейс
+  --color-interface-modal: rgba(40, 42, 54, 0.9);
+  --color-interface-search: rgba(255, 255, 255, 0.1);
+  --color-interface-sidebar: rgb(30, 32, 42);
+  --color-interface-logo: rgb(255, 255, 255);
+  
+  // Текст
+  --color-text-primary: rgb(220, 220, 220);
+  --color-text-secondary: rgb(170, 178, 197);
+  --color-text-tertiary: rgb(200, 200, 200);
+  
+  // Границы
+  --color-border-primary: rgba(255, 255, 255, 0.1);
+  --color-border-secondary: rgba(255, 255, 255, 0.2);
+  --color-border-tertiary: rgb(85, 92, 125);
+  
+  // Акценты
+  --color-accent-primary: var(--color-brand-primary);
+  --color-accent-primary-hover: rgba(104, 182, 155, 0.8);
+  --color-accent-secondary: var(--color-brand-secondary);
+  
+  // Состояния
+  --color-state-hover: rgba(255, 255, 255, 0.1);
+  --color-state-active: rgba(255, 255, 255, 0.1);
+  --color-state-disabled: rgb(117, 117, 117);
+  
+  // Действия
+  --color-action-primary: var(--color-brand-primary);
+  --color-action-secondary: var(--color-brand-secondary);
+  --color-action-danger: rgb(196, 63, 63);
+  --color-action-danger-hover: rgb(189, 87, 87);
+  
+  // Фон
+  --color-background-primary: rgb(30, 32, 42);
+  --color-background-secondary: rgb(40, 42, 54);
+  
+  // Тени
+  --color-shadow-primary: rgba(0, 0, 0, 0.24);
+  --color-shadow-secondary: rgba(0, 0, 0, 0.1);
 }
